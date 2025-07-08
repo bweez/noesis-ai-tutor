@@ -1,0 +1,163 @@
+---
+layout: default
+---
+
+<div class="container my-5">
+    <!-- Question Header -->
+    <div class="row">
+        <div class="col-lg-8">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ '/' | relative_url }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ '/questions/' | relative_url }}">Questions</a></li>
+                    <li class="breadcrumb-item active">{{ page.title }}</li>
+                </ol>
+            </nav>
+            
+            <h1 class="mb-3">{{ page.title }}</h1>
+            
+            <!-- Tags and Metadata -->
+            <div class="mb-4">
+                {% if page.difficulty %}
+                <span class="badge bg-primary me-2">
+                    <i class="fas fa-signal"></i> {{ page.difficulty | capitalize }}
+                </span>
+                {% endif %}
+                
+                {% if page.subject %}
+                <span class="badge bg-secondary me-2">
+                    <i class="fas fa-book"></i> {{ page.subject }}
+                </span>
+                {% endif %}
+                
+                {% if page.grade_level %}
+                <span class="badge bg-info me-2">
+                    <i class="fas fa-graduation-cap"></i> Grade {{ page.grade_level }}
+                </span>
+                {% endif %}
+                
+                {% if page.time_estimate %}
+                <span class="badge bg-warning text-dark me-2">
+                    <i class="fas fa-clock"></i> {{ page.time_estimate }}
+                </span>
+                {% endif %}
+                
+                {% if page.tags %}
+                {% for tag in page.tags %}
+                <span class="badge bg-light text-dark me-1">{{ tag }}</span>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="col-lg-4">
+            <!-- Quick Actions -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Quick Actions</h5>
+                    {% if page.chatgpt_link %}
+                    <a href="{{ page.chatgpt_link }}" class="btn btn-success btn-sm mb-2 w-100" target="_blank">
+                        <i class="fas fa-robot"></i> Open AI Tutor
+                    </a>
+                    {% endif %}
+                    <button class="btn btn-outline-primary btn-sm mb-2 w-100" onclick="window.print()">
+                        <i class="fas fa-print"></i> Print Question
+                    </button>
+                    <button class="btn btn-outline-secondary btn-sm w-100" onclick="copyToClipboard()">
+                        <i class="fas fa-copy"></i> Copy Link
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Question Content -->
+    <div class="row">
+        <div class="col-lg-8">
+            <article class="question-content">
+                {{ content }}
+            </article>
+            
+            <!-- Navigation -->
+            <div class="d-flex justify-content-between mt-5">
+                {% assign questions = site.pages | where: "layout", "question" | where: "subject", page.subject | sort: "difficulty" %}
+                {% for question in questions %}
+                    {% if question.url == page.url %}
+                        {% assign current_index = forloop.index0 %}
+                        {% break %}
+                    {% endif %}
+                {% endfor %}
+                
+                {% if current_index > 0 %}
+                    {% assign prev_index = current_index | minus: 1 %}
+                    {% assign prev_question = questions[prev_index] %}
+                    <a href="{{ prev_question.url | relative_url }}" class="btn btn-outline-primary">
+                        <i class="fas fa-chevron-left"></i> Previous Question
+                    </a>
+                {% else %}
+                    <div></div>
+                {% endif %}
+                
+                {% assign next_index = current_index | plus: 1 %}
+                {% if next_index < questions.size %}
+                    {% assign next_question = questions[next_index] %}
+                    <a href="{{ next_question.url | relative_url }}" class="btn btn-outline-primary">
+                        Next Question <i class="fas fa-chevron-right"></i>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+            <!-- Related Questions -->
+            {% assign related_questions = site.questions | where: "subject", page.subject | where_exp: "item", "item.url != page.url" | limit: 5 %}
+            {% if related_questions.size > 0 %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Related Questions</h5>
+                </div>
+                <div class="card-body">
+                    {% for question in related_questions %}
+                    <div class="mb-2">
+                        <a href="{{ question.url | relative_url }}" class="text-decoration-none">
+                            {{ question.title }}
+                        </a>
+                        <br>
+                        <small class="text-muted">
+                            {% if question.difficulty %}{{ question.difficulty | capitalize }} • {% endif %}
+                            {% if question.time_estimate %}{{ question.time_estimate }}{% endif %}
+                        </small>
+                    </div>
+                    {% unless forloop.last %}<hr>{% endunless %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            
+            <!-- Subject Info -->
+            {% assign subject_info = site.subjects | where: "slug", page.subject | first %}
+            {% if subject_info %}
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">About {{ subject_info.title }}</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ subject_info.description | truncate: 150 }}</p>
+                    <a href="{{ subject_info.url | relative_url }}" class="btn btn-outline-primary btn-sm">
+                        View All {{ subject_info.title }} Content
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+function copyToClipboard() {
+    navigator.clipboard.writeText(window.location.href).then(function() {
+        alert('Link copied to clipboard!');
+    });
+}
+</script>

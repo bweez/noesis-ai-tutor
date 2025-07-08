@@ -1,0 +1,123 @@
+# Site settings
+title: "Noesis"
+subtitle: "AI Tutor Framework"
+description: "Open-source framework for building subject-specific AI tutors that enhance student learning through critical thinking"
+baseurl: "/ai-tutor-framework" # Change this to your repository name
+url: "https://bweez.github.io" # Change this to your GitHub username
+author: "Brandon Williams"
+email: "your-email@example.com"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:year/:month/:day/:title/
+
+# Jekyll plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+# Pagination
+paginate: 10
+paginate_path: "/blog/page:num/"
+
+# Collections
+collections:
+  subjects:
+    output: true
+    permalink: /subjects/:slug/
+  framework:
+    output: true
+    permalink: /framework/:slug/
+  pages:
+    output: true
+    permalink: /:basename/
+
+# Collections source directory
+collections_dir: src/content
+
+# Include subdirectories for processing
+include: ["subjects"]
+
+# Source organization
+source: .
+layouts_dir: src/layouts
+includes_dir: src/includes
+
+# Sass configuration
+sass:
+  sass_dir: src/assets/css
+  style: compressed
+
+# Sass configuration
+sass:
+  sass_dir: src/assets/css
+  style: compressed
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "default"
+      author: "Noesis Team"
+  - scope:
+      path: ""
+      type: "subjects"
+    values:
+      layout: "subject"
+  - scope:
+      path: ""
+      type: "questions"
+    values:
+      layout: "question"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "framework"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# Navigation
+navigation:
+  - title: "Home"
+    url: "/"
+  - title: "Subjects"
+    url: "/subjects/"
+  - title: "Questions"
+    url: "/questions/"
+  - title: "Framework"
+    url: "/framework/"
+  - title: "Blog"
+    url: "/blog/"
+
+# Search
+search: true
+
+# Social links
+github_username: bweez
+
+# Google Analytics (optional)
+# google_analytics: "UA-XXXXXXXX-X"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - LICENSE
+  - CONTRIBUTING.md

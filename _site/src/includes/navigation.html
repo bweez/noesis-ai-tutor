@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="{{ site.baseurl }}/">
+            <i class="fas fa-brain text-primary"></i>
+            {{ site.title }}
+            <small class="text-muted">{{ site.subtitle }}</small>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                {% for item in site.navigation %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</nav>

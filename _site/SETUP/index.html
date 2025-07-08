@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Pages Setup Guide | Noesis</title>
+    <meta name="description" content="Open-source framework for building subject-specific AI tutors that enhance student learning through critical thinking">
+    
+    <!-- SEO -->
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>GitHub Pages Setup Guide | Noesis</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="GitHub Pages Setup Guide" />
+<meta name="author" content="Brandon Williams" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Open-source framework for building subject-specific AI tutors that enhance student learning through critical thinking" />
+<meta property="og:description" content="Open-source framework for building subject-specific AI tutors that enhance student learning through critical thinking" />
+<link rel="canonical" href="http://localhost:4000/ai-tutor-framework/SETUP/" />
+<meta property="og:url" content="http://localhost:4000/ai-tutor-framework/SETUP/" />
+<meta property="og:site_name" content="Noesis" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="GitHub Pages Setup Guide" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Brandon Williams"},"description":"Open-source framework for building subject-specific AI tutors that enhance student learning through critical thinking","headline":"GitHub Pages Setup Guide","url":"http://localhost:4000/ai-tutor-framework/SETUP/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="/ai-tutor-framework/src/assets/css/main.css" rel="stylesheet">
+    
+    <!-- Search functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/ai-tutor-framework/">
+                <i class="fas fa-brain"></i> 
+                <span class="fw-bold">Noesis</span>
+                <small class="text-light ms-2">AI Tutor Framework</small>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ai-tutor-framework/">Home</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ai-tutor-framework/subjects/">Subjects</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ai-tutor-framework/questions/">Questions</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ai-tutor-framework/framework/">Framework</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ai-tutor-framework/blog/">Blog</a>
+                    </li>
+                    
+                </ul>
+                
+                <!-- Search -->
+                <div class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search..." id="search-input">
+                    <button class="btn btn-outline-light" type="button" id="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        
+            <div class="container my-5">
+                <h1 id="github-pages-setup-guide">GitHub Pages Setup Guide</h1>
+
+<p>This guide will help you deploy your Noesis AI Tutor Framework as a searchable blog using GitHub Pages.</p>
+
+<h2 id="quick-setup">Quick Setup</h2>
+
+<h3 id="1-enable-github-pages">1. Enable GitHub Pages</h3>
+
+<ol>
+  <li>Go to your repository on GitHub</li>
+  <li>Click on <strong>Settings</strong> tab</li>
+  <li>Scroll down to <strong>Pages</strong> section</li>
+  <li>Under <strong>Source</strong>, select “Deploy from a branch”</li>
+  <li>Choose <strong>main</strong> branch and <strong>/ (root)</strong> folder</li>
+  <li>Click <strong>Save</strong></li>
+</ol>
+
+<p>Your site will be available at: <code class="language-plaintext highlighter-rouge">https://yourusername.github.io/ai-tutor-framework</code></p>
+
+<h3 id="2-update-configuration">2. Update Configuration</h3>
+
+<p>Edit <code class="language-plaintext highlighter-rouge">_config.yml</code> and update these values:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Your</span><span class="nv"> </span><span class="s">Framework</span><span class="nv"> </span><span class="s">Name"</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Your</span><span class="nv"> </span><span class="s">description"</span>
+<span class="na">baseurl</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/your-repository-name"</span>
+<span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://yourusername.github.io"</span>
+<span class="na">author</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Your</span><span class="nv"> </span><span class="s">Name"</span>
+<span class="na">email</span><span class="pi">:</span> <span class="s2">"</span><span class="s">your-email@example.com"</span>
+<span class="na">github_username</span><span class="pi">:</span> <span class="s">yourusername</span>
+</code></pre></div></div>
+
+<h3 id="3-add-your-first-question">3. Add Your First Question</h3>
+
+<p>Create a new file in <code class="language-plaintext highlighter-rouge">_questions/</code> folder:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">question</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Your</span><span class="nv"> </span><span class="s">Question</span><span class="nv"> </span><span class="s">Title"</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Brief</span><span class="nv"> </span><span class="s">description</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">question"</span>
+<span class="na">subject</span><span class="pi">:</span> <span class="s">your-subject-slug</span>
+<span class="na">difficulty</span><span class="pi">:</span> <span class="s">beginner|intermediate|advanced</span>
+<span class="na">grade_level</span><span class="pi">:</span> <span class="s2">"</span><span class="s">8-10"</span>
+<span class="na">time_estimate</span><span class="pi">:</span> <span class="s2">"</span><span class="s">15-20</span><span class="nv"> </span><span class="s">minutes"</span>
+<span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">tag1</span><span class="pi">,</span> <span class="nv">tag2</span><span class="pi">,</span> <span class="nv">tag3</span><span class="pi">]</span>
+<span class="na">chatgpt_link</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://chat.openai.com/g/g-XXXXXXXX"</span>
+<span class="nn">---</span>
+
+<span class="s">Your question content here...</span>
+</code></pre></div></div>
+
+<h3 id="4-add-your-first-subject">4. Add Your First Subject</h3>
+
+<p>Create a new file in <code class="language-plaintext highlighter-rouge">_subjects/</code> folder:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">subject</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Subject</span><span class="nv"> </span><span class="s">Name"</span>
+<span class="na">slug</span><span class="pi">:</span> <span class="s">subject-slug</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Subject</span><span class="nv"> </span><span class="s">description"</span>
+<span class="na">grade_levels</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">8</span><span class="pi">,</span> <span class="nv">9</span><span class="pi">,</span> <span class="nv">10</span><span class="pi">]</span>
+<span class="na">difficulty_levels</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">beginner</span><span class="pi">,</span> <span class="nv">intermediate</span><span class="pi">,</span> <span class="nv">advanced</span><span class="pi">]</span>
+<span class="na">chatgpt_link</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://chat.openai.com/g/g-XXXXXXXX"</span>
+<span class="na">key_topics</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s2">"</span><span class="s">Topic</span><span class="nv"> </span><span class="s">1"</span>
+  <span class="pi">-</span> <span class="s2">"</span><span class="s">Topic</span><span class="nv"> </span><span class="s">2"</span>
+<span class="nn">---</span>
+
+<span class="s">Subject content here...</span>
+</code></pre></div></div>
+
+<h2 id="features-available">Features Available</h2>
+
+<h3 id="-search-functionality">🔍 Search Functionality</h3>
+<ul>
+  <li>Full-text search across all content</li>
+  <li>Search by title, content, subject, and tags</li>
+  <li>Real-time filtering</li>
+</ul>
+
+<h3 id="️-tagging-system">🏷️ Tagging System</h3>
+<ul>
+  <li>Tag questions by topic, difficulty, concept</li>
+  <li>Filter content by multiple tags</li>
+  <li>Tag cloud visualization</li>
+</ul>
+
+<h3 id="-responsive-design">📱 Responsive Design</h3>
+<ul>
+  <li>Mobile-friendly interface</li>
+  <li>Bootstrap-based responsive layout</li>
+  <li>Print-friendly question pages</li>
+</ul>
+
+<h3 id="-professional-appearance">🎨 Professional Appearance</h3>
+<ul>
+  <li>Clean, educational design</li>
+  <li>Easy navigation</li>
+  <li>Clear content hierarchy</li>
+</ul>
+
+<h2 id="local-development">Local Development</h2>
+
+<p>To test your site locally:</p>
+
+<ol>
+  <li>Install Ruby and Jekyll:
+```bash
+    <h1 id="on-macos-with-homebrew">On macOS with Homebrew</h1>
+    <p>brew install ruby
+gem install jekyll bundler</p>
+  </li>
+</ol>
+
+<h1 id="on-other-systems-see-httpsjekyllrbcomdocsinstallation">On other systems, see: https://jekyllrb.com/docs/installation/</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+2. Install dependencies:
+```bash
+cd ai-tutor-framework
+bundle install
+</code></pre></div></div>
+
+<ol>
+  <li>Run the development server:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">exec </span>jekyll serve
+</code></pre></div>    </div>
+  </li>
+  <li>Open <code class="language-plaintext highlighter-rouge">http://localhost:4000</code> in your browser</li>
+</ol>
+
+<h2 id="customization">Customization</h2>
+
+<h3 id="adding-new-content-types">Adding New Content Types</h3>
+
+<ol>
+  <li>Create a new collection in <code class="language-plaintext highlighter-rouge">_config.yml</code>:
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">collections</span><span class="pi">:</span>
+  <span class="na">newtype</span><span class="pi">:</span>
+<span class="err"> </span><span class="na">output</span><span class="pi">:</span> <span class="no">true</span>
+ <span class="na">permalink</span><span class="pi">:</span> <span class="s">/:collection/:name/</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Create a new layout in <code class="language-plaintext highlighter-rouge">_layouts/newtype.html</code></li>
+  <li>Add content in <code class="language-plaintext highlighter-rouge">_newtype/</code> folder</li>
+</ol>
+
+<h3 id="styling-changes">Styling Changes</h3>
+
+<p>Edit <code class="language-plaintext highlighter-rouge">assets/css/main.css</code> to customize:</p>
+<ul>
+  <li>Colors and themes</li>
+  <li>Typography</li>
+  <li>Layout spacing</li>
+  <li>Component styles</li>
+</ul>
+
+<h3 id="adding-analytics">Adding Analytics</h3>
+
+<p>Uncomment and configure in <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">google_analytics</span><span class="pi">:</span> <span class="s2">"</span><span class="s">UA-XXXXXXXX-X"</span>
+</code></pre></div></div>
+
+<h2 id="seo-optimization">SEO Optimization</h2>
+
+<p>The site includes:</p>
+<ul>
+  <li>Jekyll SEO Tag plugin</li>
+  <li>Structured metadata</li>
+  <li>Social media previews</li>
+  <li>Sitemap generation</li>
+  <li>Search engine friendly URLs</li>
+</ul>
+
+<h2 id="maintenance">Maintenance</h2>
+
+<h3 id="regular-updates">Regular Updates</h3>
+<ul>
+  <li>Keep Jekyll and gems updated</li>
+  <li>Monitor GitHub Pages build status</li>
+  <li>Review and moderate contributions</li>
+  <li>Update ChatGPT links as needed</li>
+</ul>
+
+<h3 id="content-management">Content Management</h3>
+<ul>
+  <li>Use consistent tagging</li>
+  <li>Maintain question quality</li>
+  <li>Update examples regularly</li>
+  <li>Monitor user feedback</li>
+</ul>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<h3 id="common-issues">Common Issues</h3>
+
+<p><strong>Site not building?</strong></p>
+<ul>
+  <li>Check GitHub Pages build status in repository settings</li>
+  <li>Verify YAML front matter syntax</li>
+  <li>Ensure all required fields are present</li>
+</ul>
+
+<p><strong>Search not working?</strong></p>
+<ul>
+  <li>Check browser console for JavaScript errors</li>
+  <li>Verify Lunr.js is loading correctly</li>
+  <li>Ensure search data is being generated</li>
+</ul>
+
+<p><strong>Styling issues?</strong></p>
+<ul>
+  <li>Clear browser cache</li>
+  <li>Check CSS file paths</li>
+  <li>Verify Bootstrap CDN is accessible</li>
+</ul>
+
+<h3 id="getting-help">Getting Help</h3>
+
+<ul>
+  <li>Check Jekyll documentation: https://jekyllrb.com/docs/</li>
+  <li>GitHub Pages help: https://docs.github.com/en/pages</li>
+  <li>Open an issue in this repository for framework-specific problems</li>
+</ul>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<ol>
+  <li><strong>Add Content</strong>: Start with 3-5 questions per subject</li>
+  <li><strong>Test with Students</strong>: Get real classroom feedback</li>
+  <li><strong>Iterate</strong>: Improve based on usage patterns</li>
+  <li><strong>Expand</strong>: Add new subjects and difficulty levels</li>
+  <li><strong>Community</strong>: Encourage teacher contributions</li>
+</ol>
+
+<p>Your Noesis blog is now ready to enhance student learning through critical thinking!</p>
+
+            </div>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light mt-5 py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Noesis</h5>
+                    <h6 class="text-muted">AI Tutor Framework</h6>
+                    <p>Open-source framework for building subject-specific AI tutors that enhance student learning through critical thinking</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Connect</h5>
+                    <div class="social-links">
+                        
+                        <a href="https://github.com/bweez" class="text-light me-3">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2025 Brandon Williams. Released under MIT License.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Search Results Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Search Results</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="search-results"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/ai-tutor-framework/src/assets/js/search.js"></script>
+    
+    
+</body>
+</html>

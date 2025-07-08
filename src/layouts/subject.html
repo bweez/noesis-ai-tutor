@@ -1,0 +1,180 @@
+---
+layout: default
+---
+
+<div class="container my-5">
+    <!-- Subject Header -->
+    <div class="row">
+        <div class="col-lg-8">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ '/' | relative_url }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ '/subjects/' | relative_url }}">Subjects</a></li>
+                    <li class="breadcrumb-item active">{{ page.title }}</li>
+                </ol>
+            </nav>
+            
+            <h1 class="mb-3">
+                <i class="fas fa-book text-primary"></i>
+                {{ page.title }}
+            </h1>
+            
+            {% if page.description %}
+            <p class="lead">{{ page.description }}</p>
+            {% endif %}
+            
+            <!-- Subject Metadata -->
+            <div class="mb-4">
+                {% if page.grade_levels %}
+                <span class="badge bg-info me-2">
+                    <i class="fas fa-graduation-cap"></i> 
+                    {% if page.grade_levels.size == 1 %}
+                        Grade {{ page.grade_levels.first }}
+                    {% else %}
+                        Grades {{ page.grade_levels | join: ", " }}
+                    {% endif %}
+                </span>
+                {% endif %}
+                
+                {% if page.difficulty_levels %}
+                <span class="badge bg-secondary me-2">
+                    <i class="fas fa-signal"></i> 
+                    {{ page.difficulty_levels | join: ", " | capitalize }} Levels
+                </span>
+                {% endif %}
+                
+                {% assign subject_questions = site.questions | where: "subject", page.slug %}
+                {% if subject_questions.size > 0 %}
+                <span class="badge bg-warning text-dark me-2">
+                    <i class="fas fa-question-circle"></i> 
+                    {{ subject_questions.size }} Question{{ subject_questions.size | pluralize: "", "s" }}
+                </span>
+                {% endif %}
+                
+                {% if page.key_topics %}
+                <span class="badge bg-light text-dark">
+                    <i class="fas fa-list"></i> 
+                    {{ page.key_topics.size }} Key Topics
+                </span>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="col-lg-4">
+            <!-- Quick Actions -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Quick Actions</h5>
+                    {% if page.chatgpt_link %}
+                    <a href="{{ page.chatgpt_link }}" class="btn btn-success btn-sm mb-2 w-100" target="_blank">
+                        <i class="fas fa-robot"></i> Open {{ page.title }} AI Tutor
+                    </a>
+                    {% endif %}
+                    <a href="{{ '/questions/' | relative_url }}" class="btn btn-primary btn-sm mb-2 w-100">
+                        <i class="fas fa-question-circle"></i> Browse All Questions
+                    </a>
+                    <a href="{{ '/contribute/' | relative_url }}" class="btn btn-outline-secondary btn-sm w-100">
+                        <i class="fas fa-plus"></i> Add Questions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subject Content -->
+    <div class="row">
+        <div class="col-lg-8">
+            <article class="subject-content">
+                {{ content }}
+            </article>
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+            <!-- Prerequisites -->
+            {% if page.prerequisites %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-check-circle text-success"></i>
+                        Prerequisites
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mb-0">
+                        {% for prereq in page.prerequisites %}
+                        <li class="mb-2">
+                            <i class="fas fa-arrow-right text-muted me-2"></i>
+                            {{ prereq }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Learning Outcomes -->
+            {% if page.learning_outcomes %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-target text-primary"></i>
+                        Learning Outcomes
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mb-0">
+                        {% for outcome in page.learning_outcomes %}
+                        <li class="mb-2">
+                            <i class="fas fa-arrow-right text-muted me-2"></i>
+                            {{ outcome }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Key Topics -->
+            {% if page.key_topics %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-list text-info"></i>
+                        Key Topics
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex flex-wrap gap-2">
+                        {% for topic in page.key_topics %}
+                        <span class="badge bg-light text-dark">{{ topic }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Related Subjects -->
+            {% assign related_subjects = site.subjects | where_exp: "item", "item.slug != page.slug" | limit: 3 %}
+            {% if related_subjects.size > 0 %}
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Other Subjects</h5>
+                </div>
+                <div class="card-body">
+                    {% for subject in related_subjects %}
+                    <div class="mb-2">
+                        <a href="{{ subject.url | relative_url }}" class="text-decoration-none">
+                            <strong>{{ subject.title }}</strong>
+                        </a>
+                        <br>
+                        <small class="text-muted">{{ subject.description | truncate: 80 }}</small>
+                    </div>
+                    {% unless forloop.last %}<hr>{% endunless %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
