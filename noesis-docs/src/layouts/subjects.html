@@ -1,0 +1,231 @@
+---
+layout: default
+---
+
+<div class="container-fluid py-4">
+<div class="row justify-content-center">
+<div class="col-12 col-lg-10 col-xl-8">
+
+<div class="subjects-header mb-4">
+  <h1>{{ page.title }}</h1>
+  {% if page.description %}
+    <p class="lead">{{ page.description }}</p>
+  {% endif %}
+</div>
+
+<div class="subjects-content">
+  <!-- Extract just the first section before "Coming Soon" -->
+  {% assign content_parts = content | split: '<h2 id="coming-soon">' %}
+  {{ content_parts[0] }}
+</div>
+
+<!-- Search and Filter Section -->
+<div class="search-section mb-4">
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-8 mb-3">
+          <label for="subject-search" class="form-label">Search Subjects</label>
+          <input type="text" id="subject-search" class="form-control" placeholder="Search by subject name or description...">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="grade-filter" class="form-label">Filter by Grade Level</label>
+          <select id="grade-filter" class="form-select">
+            <option value="">All Grades</option>
+            <option value="8">Grade 8</option>
+            <option value="9">Grade 9</option>
+            <option value="10">Grade 10</option>
+            <option value="11">Grade 11</option>
+            <option value="12">Grade 12</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Subjects List -->
+<div class="subjects-list" id="subjects-container">
+  {% for subject in site.subjects %}
+    {% unless subject.slug == '_template' %}
+      {% comment %}Only show actual subject pages, not questions or other sub-content{% endcomment %}
+      {% unless subject.layout == 'question' or subject.path contains '/questions/' %}
+      <div class="subject-item" 
+           data-title="{{ subject.title | downcase }}"
+           data-description="{{ subject.description | downcase }}"
+           data-grades="{{ subject.grade_levels | join: ',' }}">
+        <div class="d-flex justify-content-between align-items-center py-3 border-bottom">
+          <div class="subject-info">
+            <h4 class="mb-1">
+              <a href="{{ subject.url | relative_url }}" class="text-decoration-none">{{ subject.title }}</a>
+            </h4>
+            {% if subject.description %}
+              <p class="text-muted mb-1">{{ subject.description }}</p>
+            {% endif %}
+            {% if subject.grade_levels %}
+              <small class="text-secondary">Grades {{ subject.grade_levels | join: ", " }}</small>
+            {% endif %}
+          </div>
+          <div class="subject-actions">
+            {% if subject.chatgpt_link %}
+              <a href="{{ subject.chatgpt_link }}" class="btn btn-success" target="_blank">
+                <i class="fas fa-robot"></i> Start AI Tutor
+              </a>
+            {% else %}
+              <a href="{{ subject.url | relative_url }}" class="btn btn-primary">
+                Learn More
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endunless %}
+    {% endunless %}
+  {% endfor %}
+</div>
+
+<!-- No Results Message -->
+<div id="no-subjects-found" class="text-center py-5" style="display: none;">
+  <div class="card">
+    <div class="card-body">
+      <i class="fas fa-search fa-3x text-muted mb-3"></i>
+      <h4 class="text-muted">No subjects found</h4>
+      <p class="text-muted">Try adjusting your search criteria or browse all subjects above.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Rest of Content (Coming Soon, etc.) -->
+<div class="subjects-additional-content">
+  {% if content_parts[1] %}
+    <h2 id="coming-soon">Coming Soon</h2>
+    {{ content_parts[1] }}
+  {% endif %}
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- Search and Filter JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('subject-search');
+    const gradeFilter = document.getElementById('grade-filter');
+    const subjectItems = document.querySelectorAll('.subject-item');
+    const noResults = document.getElementById('no-subjects-found');
+    const subjectsContainer = document.getElementById('subjects-container');
+
+    function filterSubjects() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedGrade = gradeFilter.value;
+        
+        let visibleCount = 0;
+
+        subjectItems.forEach(item => {
+            const title = item.dataset.title;
+            const description = item.dataset.description;
+            const grades = item.dataset.grades.split(',');
+            
+            const matchesSearch = !searchTerm || 
+                title.includes(searchTerm) || 
+                description.includes(searchTerm);
+            
+            const matchesGrade = !selectedGrade || grades.includes(selectedGrade);
+            
+            if (matchesSearch && matchesGrade) {
+                item.style.display = 'block';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        if (visibleCount === 0) {
+            noResults.style.display = 'block';
+            subjectsContainer.style.display = 'none';
+        } else {
+            noResults.style.display = 'none';
+            subjectsContainer.style.display = 'block';
+        }
+    }
+
+    searchInput.addEventListener('input', filterSubjects);
+    gradeFilter.addEventListener('change', filterSubjects);
+});
+</script>
+
+<style>
+.search-section {
+  margin-top: 1rem;
+}
+
+.subjects-list {
+  background: white;
+  border-radius: 0.5rem;
+  border: 1px solid #dee2e6;
+  margin-bottom: 2rem;
+}
+
+.subject-item:last-child .border-bottom {
+  border-bottom: none !important;
+}
+
+.subject-info h4 a {
+  color: var(--primary-color, #007bff);
+}
+
+.subject-info h4 a:hover {
+  color: var(--primary-color-dark, #0056b3);
+}
+
+.subjects-content h2:nth-of-type(2) {
+  margin-top: 3rem;
+}
+
+.subjects-additional-content {
+  margin-top: 3rem;
+}
+
+.subjects-additional-content h2:first-child {
+  margin-top: 0;
+}
+
+.subjects-additional-content h3 {
+  background: #f8f9fa;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  border-left: 4px solid var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.subjects-additional-content ul {
+  background: #f8f9fa;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.subjects-additional-content h2:last-of-type {
+  background: #e3f2fd;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .subject-item .d-flex {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+  
+  .subject-actions {
+    margin-top: 1rem;
+    align-self: stretch;
+  }
+  
+  .subject-actions .btn {
+    width: 100%;
+  }
+}
+</style>

@@ -1,0 +1,749 @@
+---
+---
+
+/* Custom styles for AI Tutor Framework */
+
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --info-color: #0dcaf0;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+}
+
+/* Typography */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0b5ed7 100%);
+    color: white;
+    padding: 4rem 0 5rem 0;
+    margin-bottom: 0;
+}
+
+.hero-section h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-section .lead {
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.hero-illustration {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Cards */
+.card {
+    border: none;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: all 0.3s ease;
+    border-radius: 0.75rem;
+}
+
+.card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+}
+
+.card-header {
+    background-color: var(--light-color);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    font-weight: 600;
+}
+
+/* Badges */
+.badge {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.difficulty-beginner {
+    background-color: var(--success-color) !important;
+}
+
+.difficulty-intermediate {
+    background-color: var(--warning-color) !important;
+    color: var(--dark-color) !important;
+}
+
+.difficulty-advanced {
+    background-color: var(--danger-color) !important;
+}
+
+/* Question Content */
+.question-content {
+    font-size: 1.1rem;
+}
+
+.question-content h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+.question-content h3 {
+    color: var(--secondary-color);
+    margin-top: 1.5rem;
+}
+
+.question-content blockquote {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    background-color: var(--light-color);
+    padding: 1rem;
+    border-radius: 0.25rem;
+}
+
+.question-content code {
+    background-color: var(--light-color);
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.9em;
+}
+
+.question-content pre {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    overflow-x: auto;
+}
+
+/* Lists */
+.question-content ul, .question-content ol {
+    margin-bottom: 1.5rem;
+}
+
+.question-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* Checkboxes in markdown */
+.question-content input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+/* Tags */
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.tag-filter {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tag-filter:hover {
+    transform: scale(1.05);
+}
+
+.tag-filter.active {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* Search */
+.search-results {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.search-result-item {
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-highlight {
+    background-color: yellow;
+    padding: 0.1rem 0.2rem;
+    border-radius: 0.25rem;
+}
+
+/* Filter buttons */
+.filter-buttons {
+    margin-bottom: 2rem;
+}
+
+.filter-buttons .btn {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Grid layouts */
+.question-grid, .subject-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.question-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.subject-grid {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+
+/* Homepage Quick Start Cards */
+.quick-start-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.quick-start-card {
+    background: #f8f9fa;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.quick-start-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.quick-start-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.quick-start-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.quick-start-card p {
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+    color: #6c757d;
+}
+
+/* Philosophy Cards */
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.philosophy-card {
+    border: 2px solid #e9ecef;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    height: 100%;
+}
+
+.philosophy-card.primary { border-color: var(--primary-color); }
+.philosophy-card.success { border-color: var(--success-color); }
+.philosophy-card.info { border-color: var(--info-color); }
+.philosophy-card.warning { border-color: var(--warning-color); }
+.philosophy-card.secondary { border-color: var(--secondary-color); }
+
+.philosophy-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* Getting Involved Cards */
+.involvement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.involvement-card {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.involvement-card .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.involvement-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.involvement-card ul {
+    text-align: left;
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+
+/* Framework Components */
+.framework-section {
+    margin-bottom: 3rem;
+}
+
+.framework-docs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.framework-doc-card {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.framework-doc-card h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.framework-doc-card .category {
+    font-style: italic;
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.framework-doc-card p {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
+/* Subjects Page Styles */
+.subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.subject-card {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.subject-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.subject-card-header {
+    background: #f8f9fa;
+    padding: 1.25rem;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.subject-card-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.subject-card-header h3 a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.subject-card-header h3 a:hover {
+    text-decoration: underline;
+}
+
+.subject-card-body {
+    padding: 1.25rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.subject-card-body > p {
+    margin-bottom: 1rem;
+}
+
+.subject-details {
+    margin-bottom: 1rem;
+}
+
+.subject-detail-item {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.subject-topics {
+    margin-top: auto;
+}
+
+.subject-topics ul {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    padding-left: 1.2rem;
+}
+
+.subject-topics li {
+    margin-bottom: 0.25rem;
+}
+
+.subject-card-footer {
+    padding: 1.25rem;
+    border-top: 1px solid #e9ecef;
+    background: #fafafa;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.subject-card-footer .btn {
+    flex: 1;
+    min-width: 120px;
+}
+
+/* Coming Soon Section */
+.coming-soon-section {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 0.5rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.planned-subjects {
+    margin-top: 1rem;
+}
+
+.planned-subjects ul {
+    columns: 2;
+    column-gap: 2rem;
+    margin-bottom: 0;
+}
+
+.planned-subjects li {
+    break-inside: avoid;
+    margin-bottom: 0.5rem;
+}
+
+/* How to Use Section */
+.usage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.usage-card {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+}
+
+.usage-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.usage-card ol {
+    margin-bottom: 0;
+}
+
+.usage-card li {
+    margin-bottom: 0.5rem;
+}
+
+/* Support Resources */
+.support-resources {
+    background: #e3f2fd;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.support-resources ul {
+    margin-bottom: 0;
+}
+
+.support-resources li {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-section .lead {
+        font-size: 1.25rem;
+    }
+    
+    .question-grid, .subject-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .quick-start-grid,
+    .philosophy-grid,
+    .involvement-grid,
+    .framework-docs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .quick-start-card,
+    .involvement-card {
+        padding: 1.5rem;
+    }
+    
+    .subjects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .subject-card-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .subject-card-footer {
+        flex-direction: column;
+    }
+    
+    .subject-card-footer .btn {
+        flex: none;
+    }
+    
+    .planned-subjects ul {
+        columns: 1;
+    }
+    
+    .usage-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Additional mobile-first improvements */
+@media (max-width: 576px) {
+    .g-4 {
+        --bs-gutter-x: 1rem;
+        --bs-gutter-y: 1rem;
+    }
+    
+    .hero-section {
+        padding: 2rem 0 3rem 0;
+    }
+    
+    .btn-lg {
+        padding: 0.6rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .d-flex.flex-column.flex-sm-row {
+        gap: 0.75rem !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    .navbar, footer, .card:not(.question-content), .btn {
+        display: none !important;
+    }
+    
+    .container {
+        max-width: none !important;
+        padding: 0 !important;
+    }
+    
+    .question-content {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+    
+    .question-content h1, .question-content h2 {
+        page-break-after: avoid;
+    }
+}
+
+/* Animation utilities */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Accessibility improvements */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus styles */
+a:focus, button:focus, input:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Custom components */
+.stats-card {
+    text-align: center;
+    padding: 2rem;
+}
+
+.stats-card .stats-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: block;
+}
+
+.stats-card .stats-label {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Loading spinner */
+.spinner {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 0.125rem solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Mobile-first button improvements */
+.btn {
+    font-weight: 500;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-lg {
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+}
+
+/* Icon sizing improvements */
+.fa-10x {
+    font-size: 8em;
+}
+
+@media (max-width: 768px) {
+    .fa-10x {
+        font-size: 5em;
+    }
+}
+
+/* Better text hierarchy */
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    margin-bottom: 1rem;
+}
+
+h5 {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+}
+
+/* Improved section spacing */
+.my-5 {
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+}
+
+@media (max-width: 768px) {
+    .my-5 {
+        margin-top: 2rem !important;
+        margin-bottom: 2rem !important;
+    }
+}
+
+/* Better focus states for accessibility */
+.btn:focus,
+.card:focus {
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    outline: none;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}

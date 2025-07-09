@@ -1,0 +1,411 @@
+---
+layout: default
+---
+
+<div class="container-fluid py-4">
+<div class="row justify-content-center">
+<div class="col-12 col-lg-10 col-xl-8">
+
+<div class="content-wrapper">
+{{ content }}
+</div>
+
+</div>
+</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Transform Quick Start section into cards
+    const quickStartSection = document.querySelector('h2[id*="quick-start"]');
+    if (quickStartSection) {
+        const quickStartContent = [];
+        let nextElement = quickStartSection.nextElementSibling;
+        
+        // Collect all h3 elements and their content until next h2
+        while (nextElement && nextElement.tagName !== 'H2') {
+            if (nextElement.tagName === 'H3') {
+                const cardContent = {
+                    title: nextElement.textContent,
+                    content: []
+                };
+                
+                let cardElement = nextElement.nextElementSibling;
+                while (cardElement && cardElement.tagName !== 'H3' && cardElement.tagName !== 'H2') {
+                    cardContent.content.push(cardElement);
+                    cardElement = cardElement.nextElementSibling;
+                }
+                quickStartContent.push(cardContent);
+                nextElement = cardElement;
+            } else {
+                nextElement = nextElement.nextElementSibling;
+            }
+        }
+        
+        // Create card grid
+        if (quickStartContent.length > 0) {
+            const cardGrid = document.createElement('div');
+            cardGrid.className = 'quick-start-grid';
+            
+            quickStartContent.forEach((card, index) => {
+                const iconClasses = ['fas fa-rocket text-primary', 'fas fa-chalkboard-teacher text-success', 'fas fa-question-circle text-info'];
+                const cardDiv = document.createElement('div');
+                cardDiv.className = 'quick-start-card';
+                
+                cardDiv.innerHTML = `
+                    <div class="icon">
+                        <i class="${iconClasses[index] || 'fas fa-star text-secondary'}"></i>
+                    </div>
+                    <h3>${card.title}</h3>
+                    <div class="card-content"></div>
+                `;
+                
+                const contentDiv = cardDiv.querySelector('.card-content');
+                card.content.forEach(element => {
+                    contentDiv.appendChild(element.cloneNode(true));
+                });
+                
+                cardGrid.appendChild(cardDiv);
+            });
+            
+            // Replace original content with cards
+            let elementToRemove = quickStartSection.nextElementSibling;
+            while (elementToRemove && elementToRemove.tagName !== 'H2') {
+                const next = elementToRemove.nextElementSibling;
+                elementToRemove.remove();
+                elementToRemove = next;
+            }
+            
+            quickStartSection.insertAdjacentElement('afterend', cardGrid);
+        }
+    }
+    
+    // Transform Philosophy section into cards
+    const philosophySection = document.querySelector('h2[id*="framework-philosophy"]');
+    if (philosophySection) {
+        const philosophyContent = [];
+        let nextElement = philosophySection.nextElementSibling;
+        
+        while (nextElement && nextElement.tagName !== 'H2') {
+            if (nextElement.tagName === 'H3') {
+                const cardContent = {
+                    title: nextElement.textContent,
+                    content: []
+                };
+                
+                let cardElement = nextElement.nextElementSibling;
+                while (cardElement && cardElement.tagName !== 'H3' && cardElement.tagName !== 'H2') {
+                    cardContent.content.push(cardElement);
+                    cardElement = cardElement.nextElementSibling;
+                }
+                philosophyContent.push(cardContent);
+                nextElement = cardElement;
+            } else {
+                nextElement = nextElement.nextElementSibling;
+            }
+        }
+        
+        if (philosophyContent.length > 0) {
+            const cardGrid = document.createElement('div');
+            cardGrid.className = 'philosophy-grid';
+            
+            const cardTypes = ['primary', 'success', 'info', 'warning', 'secondary'];
+            
+            philosophyContent.forEach((card, index) => {
+                const cardDiv = document.createElement('div');
+                cardDiv.className = `philosophy-card ${cardTypes[index] || 'secondary'}`;
+                
+                cardDiv.innerHTML = `<h3>${card.title}</h3>`;
+                
+                card.content.forEach(element => {
+                    cardDiv.appendChild(element.cloneNode(true));
+                });
+                
+                cardGrid.appendChild(cardDiv);
+            });
+            
+            // Replace original content
+            let elementToRemove = philosophySection.nextElementSibling;
+            while (elementToRemove && elementToRemove.tagName !== 'H2') {
+                const next = elementToRemove.nextElementSibling;
+                elementToRemove.remove();
+                elementToRemove = next;
+            }
+            
+            philosophySection.insertAdjacentElement('afterend', cardGrid);
+        }
+    }
+    
+    // Transform Getting Involved section into cards  
+    const involvementSection = document.querySelector('h2[id*="getting-involved"]');
+    if (involvementSection) {
+        const involvementContent = [];
+        let nextElement = involvementSection.nextElementSibling;
+        
+        while (nextElement && nextElement.tagName !== 'H2' && nextElement.tagName !== 'HR') {
+            if (nextElement.tagName === 'H3') {
+                const cardContent = {
+                    title: nextElement.textContent,
+                    content: []
+                };
+                
+                let cardElement = nextElement.nextElementSibling;
+                while (cardElement && cardElement.tagName !== 'H3' && cardElement.tagName !== 'H2' && cardElement.tagName !== 'HR') {
+                    cardContent.content.push(cardElement);
+                    cardElement = cardElement.nextElementSibling;
+                }
+                involvementContent.push(cardContent);
+                nextElement = cardElement;
+            } else {
+                nextElement = nextElement.nextElementSibling;
+            }
+        }
+        
+        if (involvementContent.length > 0) {
+            const cardGrid = document.createElement('div');
+            cardGrid.className = 'involvement-grid';
+            
+            const icons = ['fas fa-graduation-cap text-primary', 'fas fa-code text-success', 'fas fa-microscope text-info', 'fas fa-users text-warning'];
+            
+            involvementContent.forEach((card, index) => {
+                const cardDiv = document.createElement('div');
+                cardDiv.className = 'involvement-card';
+                
+                cardDiv.innerHTML = `
+                    <div class="icon">
+                        <i class="${icons[index] || 'fas fa-star text-secondary'}"></i>
+                    </div>
+                    <h3>${card.title}</h3>
+                `;
+                
+                card.content.forEach(element => {
+                    cardDiv.appendChild(element.cloneNode(true));
+                });
+                
+                cardGrid.appendChild(cardDiv);
+            });
+            
+            // Replace original content
+            let elementToRemove = involvementSection.nextElementSibling;
+            while (elementToRemove && elementToRemove.tagName !== 'H2' && elementToRemove.tagName !== 'HR') {
+                const next = elementToRemove.nextElementSibling;
+                elementToRemove.remove();
+                elementToRemove = next;
+            }
+            
+            involvementSection.insertAdjacentElement('afterend', cardGrid);
+        }
+    }
+});
+</script>
+
+<!-- User Path Cards CSS -->
+<style>
+.user-paths {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.path-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.path-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #007bff, #6f42c1);
+  transition: height 0.3s ease;
+}
+
+.path-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.path-card:hover::before {
+  height: 6px;
+}
+
+.path-card.student::before {
+  background: linear-gradient(90deg, #007bff, #0056b3);
+}
+
+.path-card.teacher::before {
+  background: linear-gradient(90deg, #28a745, #1e7e34);
+}
+
+.path-card.developer::before {
+  background: linear-gradient(90deg, #343a40, #212529);
+}
+
+.path-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.path-card p {
+  margin-bottom: 1.5rem;
+  color: #6c757d;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.path-card .btn-container {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.path-card .btn {
+  min-width: 140px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.path-card .btn-lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+}
+
+.path-card .btn:not(.btn-lg) {
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  border-radius: 0.4rem;
+}
+
+/* Student card styling */
+.path-card.student .btn-primary {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.path-card.student .btn-primary:hover {
+  background: linear-gradient(135deg, #0056b3, #004085);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.4);
+}
+
+.path-card.student .btn-outline-primary {
+  border-color: #007bff;
+  color: #007bff;
+  background-color: transparent;
+}
+
+.path-card.student .btn-outline-primary:hover {
+  background: #007bff;
+  border-color: #007bff;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Teacher card styling */
+.path-card.teacher .btn-success {
+  background: linear-gradient(135deg, #28a745, #1e7e34);
+  border: none;
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+.path-card.teacher .btn-success:hover {
+  background: linear-gradient(135deg, #1e7e34, #155724);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(40, 167, 69, 0.4);
+}
+
+.path-card.teacher .btn-outline-success {
+  border-color: #28a745;
+  color: #28a745;
+  background-color: transparent;
+}
+
+.path-card.teacher .btn-outline-success:hover {
+  background: #28a745;
+  border-color: #28a745;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Developer card styling */
+.path-card.developer .btn-dark {
+  background: linear-gradient(135deg, #343a40, #212529);
+  border: none;
+  box-shadow: 0 4px 8px rgba(52, 58, 64, 0.3);
+}
+
+.path-card.developer .btn-dark:hover {
+  background: linear-gradient(135deg, #212529, #1a1e21);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(52, 58, 64, 0.4);
+}
+
+.path-card.developer .btn-outline-dark {
+  border-color: #343a40;
+  color: #343a40;
+  background-color: transparent;
+}
+
+.path-card.developer .btn-outline-dark:hover {
+  background: #343a40;
+  border-color: #343a40;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .user-paths {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .path-card {
+    padding: 1.5rem;
+  }
+  
+  .path-card .btn-container {
+    gap: 0.75rem;
+  }
+  
+  .path-card .btn {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .path-card {
+    padding: 1rem;
+  }
+  
+  .path-card h3 {
+    font-size: 1.3rem;
+  }
+  
+  .path-card p {
+    font-size: 1rem;
+  }
+}
+</style>

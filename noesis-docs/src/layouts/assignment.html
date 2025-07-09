@@ -1,0 +1,146 @@
+---
+layout: default
+---
+
+<div class="container-fluid py-4">
+<div class="row justify-content-center">
+<div class="col-12 col-lg-10 col-xl-8">
+
+<nav aria-label="breadcrumb" class="mb-4">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ '/' | relative_url }}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{{ '/assignments/' | relative_url }}">Assignments</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
+  </ol>
+</nav>
+
+<div class="assignment-header mb-4">
+  <div class="d-flex justify-content-between align-items-start flex-wrap">
+    <div>
+      <h1 class="mb-2">{{ page.title }}</h1>
+      {% if page.description %}
+        <p class="lead">{{ page.description }}</p>
+      {% endif %}
+    </div>
+    <div class="assignment-meta">
+      {% if page.difficulty %}
+        <span class="badge bg-info">{{ page.difficulty }}</span>
+      {% endif %}
+      {% if page.estimated_time %}
+        <span class="badge bg-secondary">{{ page.estimated_time }}</span>
+      {% endif %}
+    </div>
+  </div>
+  
+  <div class="assignment-details mt-3">
+    <div class="row">
+      {% if page.subjects %}
+      <div class="col-md-6">
+        <strong>Subjects:</strong>
+        {% for subject in page.subjects %}
+          <span class="badge bg-primary me-1">{{ subject }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% if page.learning_objectives %}
+      <div class="col-md-6">
+        <strong>Learning Objectives:</strong> {{ page.learning_objectives | size }} objectives
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="assignment-content">
+  {{ content }}
+</div>
+
+{% if page.questions %}
+<div class="assignment-questions mt-5">
+  <h2>Questions ({{ page.questions | size }})</h2>
+  
+  {% for question_ref in page.questions %}
+    {% assign question_parts = question_ref | split: "/" %}
+    {% assign subject_name = question_parts[0] %}
+    {% assign question_slug = question_parts[1] %}
+    
+    {% assign question_file = site.subjects | where: "slug", subject_name | first %}
+    {% if question_file %}
+      {% assign data_file_name = subject_name | append: '-questions' %}
+      {% assign subject_questions = site.data[data_file_name] %}
+      {% if subject_questions %}
+        {% assign question = subject_questions[question_slug] %}
+        {% if question %}
+        <div class="card mb-3">
+          <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="mb-0">
+                <a href="{{ '/subjects/' | append: subject_name | append: '/questions/' | append: question_slug | append: '/' | relative_url }}" class="text-decoration-none">
+                  {{ question.title | default: question_slug | replace: "-", " " | title }}
+                </a>
+              </h5>
+              <div>
+                <span class="badge bg-secondary">{{ subject_name | replace: "-", " " | title }}</span>
+                {% if question.difficulty %}
+                  <span class="badge bg-info">{{ question.difficulty }}</span>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            {% if question.description %}
+              <p>{{ question.description }}</p>
+            {% elsif question.prompt %}
+              <p>{{ question.prompt | truncate: 200 }}</p>
+            {% endif %}
+            
+            {% if question.learning_objective %}
+              <p><strong>Learning Objective:</strong> {{ question.learning_objective }}</p>
+            {% endif %}
+            
+            <a href="{{ '/subjects/' | append: subject_name | append: '/questions/' | append: question_slug | append: '/' | relative_url }}" class="btn btn-primary btn-sm">
+              View Question
+            </a>
+          </div>
+        </div>
+        {% else %}
+        <div class="alert alert-warning">
+          <strong>Question not found:</strong> {{ question_ref }}
+        </div>
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</div>
+{% endif %}
+
+{% if page.learning_objectives %}
+<div class="learning-objectives mt-5">
+  <h2>Learning Objectives</h2>
+  <ul>
+    {% for objective in page.learning_objectives %}
+    <li>{{ objective }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+{% if page.assessment_rubric %}
+<div class="assessment-rubric mt-5">
+  <h2>Assessment Rubric</h2>
+  {{ page.assessment_rubric | markdownify }}
+</div>
+{% endif %}
+
+{% if page.teacher_notes %}
+<div class="teacher-notes mt-5">
+  <h2>Teacher Notes</h2>
+  <div class="alert alert-info">
+    {{ page.teacher_notes | markdownify }}
+  </div>
+</div>
+{% endif %}
+
+</div>
+</div>
+</div>

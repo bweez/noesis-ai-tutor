@@ -1,0 +1,311 @@
+---
+layout: default
+---
+
+<div class="container-fluid py-4">
+<div class="row justify-content-center">
+<div class="col-12 col-lg-10 col-xl-8">
+
+<!-- Header Section -->
+<div class="assignments-header mb-4">
+  <h1>📋 {{ page.title }}</h1>
+  {% if page.description %}
+    <p class="lead">{{ page.description }}</p>
+  {% endif %}
+  
+  <p>Discover our curated collection of assignments that combine questions from multiple subjects to create comprehensive, engaging learning experiences focused on critical thinking and deep understanding.</p>
+</div>
+
+<!-- Search and Filter Section -->
+<div class="search-section mb-4">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="mb-0">🔍 Search Assignments</h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="subject-filter" class="form-label">Filter by Subject</label>
+          <select id="subject-filter" class="form-select">
+            <option value="">All Subjects</option>
+            {% assign all_subjects = site.assignments | map: 'subjects' | join: ',' | split: ',' | uniq | sort %}
+            {% for subject in all_subjects %}
+              {% unless subject == '' %}
+                <option value="{{ subject }}">{{ subject | replace: "-", " " | title }}</option>
+              {% endunless %}
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="difficulty-filter" class="form-label">Filter by Difficulty</label>
+          <select id="difficulty-filter" class="form-select">
+            <option value="">All Levels</option>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <input type="text" id="search-input" class="form-control" placeholder="Search assignments by title, description, or learning objectives...">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Assignments List -->
+<div id="assignments-container">
+  <h2>📚 Available Assignments</h2>
+  
+  {% assign assignments_by_difficulty = site.assignments | group_by: 'difficulty' %}
+  
+  {% for difficulty_group in assignments_by_difficulty %}
+    {% if difficulty_group.name != '' %}
+      <h3>{{ difficulty_group.name }} Level</h3>
+    {% endif %}
+
+    <div class="row g-3 mb-4">
+      {% for assignment in difficulty_group.items %}
+        <div class="col-12 col-lg-6 assignment-card" 
+             data-subjects="{{ assignment.subjects | join: ',' }}" 
+             data-difficulty="{{ assignment.difficulty }}"
+             data-title="{{ assignment.title | downcase }}"
+             data-description="{{ assignment.description | downcase }}"
+             data-objectives="{{ assignment.learning_objectives | join: ' ' | downcase }}">
+          <div class="card h-100">
+            <div class="card-header">
+              <div class="d-flex justify-content-between align-items-start flex-wrap">
+                <h5 class="mb-0">
+                  <a href="{{ assignment.url | relative_url }}" class="text-decoration-none">{{ assignment.title }}</a>
+                </h5>
+                <div class="assignment-badges">
+                  {% if assignment.difficulty %}
+                    <span class="badge bg-info">{{ assignment.difficulty }}</span>
+                  {% endif %}
+                  {% if assignment.estimated_time %}
+                    <span class="badge bg-secondary">{{ assignment.estimated_time }}</span>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+            <div class="card-body d-flex flex-column">
+              {% if assignment.description %}
+                <p class="flex-grow-1">{{ assignment.description }}</p>
+              {% endif %}
+
+              <div class="assignment-details mb-3">
+                {% if assignment.subjects %}
+                  <div class="mb-2">
+                    <strong>Subjects:</strong>
+                    {% for subject in assignment.subjects %}
+                      <span class="badge bg-primary me-1">{{ subject | replace: "-", " " | title }}</span>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+
+                {% if assignment.questions %}
+                  <div class="mb-2">
+                    <strong>Questions:</strong> {{ assignment.questions | size }} questions
+                  </div>
+                {% endif %}
+
+                {% if assignment.learning_objectives %}
+                  <div class="mb-2">
+                    <strong>Learning Objectives:</strong> {{ assignment.learning_objectives | size }} objectives
+                  </div>
+                {% endif %}
+              </div>
+
+              <div class="mt-auto">
+                <a href="{{ assignment.url | relative_url }}" class="btn btn-primary">View Assignment</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>
+
+<!-- No Results Message -->
+<div id="no-results" class="text-center py-5" style="display: none;">
+  <div class="card">
+    <div class="card-body">
+      <i class="fas fa-search fa-3x text-muted mb-3"></i>
+      <h4 class="text-muted">No assignments found</h4>
+      <p class="text-muted">Try adjusting your search criteria or browse all assignments above.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Documentation Section -->
+<div class="assignments-additional-content">
+  <h2>💡 Creating Your Own Assignments</h2>
+  
+  <p>Want to create custom assignments for your classroom? Here's how:</p>
+
+  <h3>Assignment Structure</h3>
+
+  <p>Each assignment is a simple Markdown file with YAML frontmatter that defines:</p>
+
+  <pre><code>---
+title: "Your Assignment Title"
+description: "Brief description of the assignment"
+subjects: ["subject-1", "subject-2"]  # Can span multiple subjects
+difficulty: "Beginner|Intermediate|Advanced"
+estimated_time: "30-45 minutes"
+learning_objectives:
+  - "First learning objective"
+  - "Second learning objective"
+questions:
+  - "subject-name/question-slug"
+  - "another-subject/another-question"
+assessment_rubric: |
+  Your assessment criteria in Markdown
+teacher_notes: |
+  Notes and tips for teachers
+---
+
+Your assignment content in Markdown...
+</code></pre>
+
+  <h3>Question References</h3>
+
+  <p>Reference questions using the simple format: <code>subject-name/question-slug</code></p>
+
+  <p>For example:</p>
+  <ul>
+    <li><code>algebra-1/linear-equations-solving</code></li>
+    <li><code>geometry/triangle-properties</code></li>
+    <li><code>critical-thinking/assumption-analysis</code></li>
+  </ul>
+
+  <h3>Best Practices</h3>
+
+  <ol>
+    <li><strong>Clear Learning Objectives</strong> - Define what students should achieve</li>
+    <li><strong>Logical Progression</strong> - Order questions to build understanding</li>
+    <li><strong>Cross-Subject Connections</strong> - Link concepts across disciplines</li>
+    <li><strong>Assessment Criteria</strong> - Provide clear rubrics for evaluation</li>
+    <li><strong>Teacher Support</strong> - Include notes for implementation</li>
+  </ol>
+
+  <hr>
+
+  <div class="text-center mt-5">
+    <a href="{{ '/subjects/' | relative_url }}" class="btn btn-secondary btn-lg me-3">Browse Subjects</a>
+    <a href="{{ '/questions/' | relative_url }}" class="btn btn-outline-primary btn-lg">View All Questions</a>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- Search and Filter JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('search-input');
+    const subjectFilter = document.getElementById('subject-filter');
+    const difficultyFilter = document.getElementById('difficulty-filter');
+    const assignmentCards = document.querySelectorAll('.assignment-card');
+    const noResults = document.getElementById('no-results');
+    const assignmentsContainer = document.getElementById('assignments-container');
+
+    function filterAssignments() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedSubject = subjectFilter.value.toLowerCase();
+        const selectedDifficulty = difficultyFilter.value;
+        
+        let visibleCount = 0;
+
+        assignmentCards.forEach(card => {
+            const subjects = card.dataset.subjects.toLowerCase();
+            const difficulty = card.dataset.difficulty;
+            const title = card.dataset.title;
+            const description = card.dataset.description;
+            const objectives = card.dataset.objectives;
+            
+            const matchesSearch = !searchTerm || 
+                title.includes(searchTerm) || 
+                description.includes(searchTerm) || 
+                objectives.includes(searchTerm);
+            
+            const matchesSubject = !selectedSubject || subjects.includes(selectedSubject);
+            const matchesDifficulty = !selectedDifficulty || difficulty === selectedDifficulty;
+            
+            if (matchesSearch && matchesSubject && matchesDifficulty) {
+                card.style.display = 'block';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        if (visibleCount === 0) {
+            noResults.style.display = 'block';
+            assignmentsContainer.style.display = 'none';
+        } else {
+            noResults.style.display = 'none';
+            assignmentsContainer.style.display = 'block';
+        }
+    }
+
+    searchInput.addEventListener('input', filterAssignments);
+    subjectFilter.addEventListener('change', filterAssignments);
+    difficultyFilter.addEventListener('change', filterAssignments);
+});
+</script>
+
+<style>
+.search-section {
+  margin-top: 1rem;
+}
+
+.assignment-card .card {
+  transition: transform 0.2s ease-in-out;
+}
+
+.assignment-card .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.assignment-badges .badge {
+  font-size: 0.75em;
+}
+
+.assignment-details {
+  font-size: 0.9em;
+}
+
+.assignments-additional-content {
+  margin-top: 3rem;
+}
+
+.assignments-additional-content h2,
+.assignments-additional-content h3 {
+  margin-top: 2rem;
+}
+
+.assignments-additional-content .text-center {
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .assignment-badges {
+    margin-top: 0.5rem;
+  }
+  
+  .assignment-badges .badge {
+    display: block;
+    margin-bottom: 0.25rem;
+    width: fit-content;
+  }
+}
+</style>
