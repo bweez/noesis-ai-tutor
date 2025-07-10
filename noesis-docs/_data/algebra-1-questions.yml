@@ -5,4 +5,4 @@
   time_estimate: "15-20 minutes"
   tags: [linear-equations, inverse-operations, algebraic-reasoning, equation-solving]
   url: "/subjects/algebra-1/questions/linear-equations-solving/"
-  chatgpt_link: "https://chatgpt.com/g/g-686c913bf2b0819191df0a0bdd6f3d97-noesis-algebra-1-tutor"
+  subject: "algebra-1"  # Used to automatically link to the correct GPT

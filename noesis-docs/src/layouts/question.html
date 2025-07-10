@@ -55,7 +55,19 @@ layout: default
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Quick Actions</h5>
-                    {% if page.chatgpt_link %}
+                    {% assign subject_from_url = page.url | extract_subject_from_url %}
+                    {% if subject_from_url and subject_from_url != '' %}
+                        {% assign gpt_url = subject_from_url | gpt_url %}
+                        {% if gpt_url and gpt_url != '' %}
+                        <a href="{{ gpt_url }}" class="btn btn-success btn-sm mb-2 w-100" target="_blank">
+                            <i class="fas fa-robot"></i> Open AI Tutor
+                        </a>
+                        {% else %}
+                        <div class="alert alert-info p-2 mb-2" style="font-size: 0.875rem;">
+                            <i class="fas fa-info-circle"></i> AI Tutor for {{ subject_from_url | replace: "-", " " | title }} coming soon!
+                        </div>
+                        {% endif %}
+                    {% elsif page.chatgpt_link %}
                     <a href="{{ page.chatgpt_link }}" class="btn btn-success btn-sm mb-2 w-100" target="_blank">
                         <i class="fas fa-robot"></i> Open AI Tutor
                     </a>

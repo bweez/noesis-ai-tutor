@@ -65,10 +65,18 @@ layout: default
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Quick Actions</h5>
-                    {% if page.chatgpt_link %}
+                    {% if page.slug == 'algebra-1' %}
+                    <a href="https://chatgpt.com/g/g-686c913bf2b0819191df0a0bdd6f3d97-noesis-algebra-1-tutor" class="btn btn-success btn-sm mb-2 w-100" target="_blank">
+                        <i class="fas fa-robot"></i> Open {{ page.title }} AI Tutor
+                    </a>
+                    {% elsif page.chatgpt_link %}
                     <a href="{{ page.chatgpt_link }}" class="btn btn-success btn-sm mb-2 w-100" target="_blank">
                         <i class="fas fa-robot"></i> Open {{ page.title }} AI Tutor
                     </a>
+                    {% else %}
+                    <div class="alert alert-info p-2 mb-2" style="font-size: 0.875rem;">
+                        <i class="fas fa-info-circle"></i> AI Tutor for {{ page.title }} coming soon!
+                    </div>
                     {% endif %}
                     <a href="{{ '/questions/' | relative_url }}" class="btn btn-primary btn-sm mb-2 w-100">
                         <i class="fas fa-question-circle"></i> Browse All Questions

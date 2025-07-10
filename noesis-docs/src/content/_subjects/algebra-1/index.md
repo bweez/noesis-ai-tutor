@@ -6,7 +6,6 @@ description: "Master foundational algebraic concepts through guided discovery an
 permalink: /subjects/algebra-1/
 grade_levels: [8, 9, 10]
 difficulty_levels: [beginner, intermediate, advanced]
-chatgpt_link: "https://chatgpt.com/g/g-686c913bf2b0819191df0a0bdd6f3d97-noesis-algebra-1-tutor"
 key_topics:
   - "Linear equations and inequalities"
   - "Graphing linear functions"
@@ -36,7 +35,7 @@ learning_outcomes:
 ### Custom GPT Configuration
 
 **Name:** Algebra 1 Tutor  
-**Link:** [Access AI Tutor]({{ page.chatgpt_link }}){: .btn .btn-success target="_blank"}
+**Link:** [Access AI Tutor](https://chatgpt.com/g/g-686c913bf2b0819191df0a0bdd6f3d97-noesis-algebra-1-tutor){: .btn .btn-success target="_blank"}
 
 ### ChatGPT Instructions
 
@@ -95,9 +94,7 @@ Upload any relevant curriculum materials, example problems, or supplementary res
 <p class="card-text small">{{ question.description }}</p>
 <div class="d-flex gap-2">
 <a href="{{ question.url | relative_url }}" class="btn btn-primary btn-sm">👁️ View Question</a>
-{% if question.chatgpt_link %}
-<a href="{{ question.chatgpt_link }}" class="btn btn-success btn-sm" target="_blank">🤖 Open AI Tutor</a>
-{% endif %}
+<a href="https://chatgpt.com/g/g-686c913bf2b0819191df0a0bdd6f3d97-noesis-algebra-1-tutor" class="btn btn-success btn-sm" target="_blank">🤖 Open AI Tutor</a>
 </div>
 </div>
 </div>
@@ -129,7 +126,7 @@ Students are evaluated on their **critical thinking process**, not just getting 
 
 **New to AI tutoring?** Check out our [Quick Start Guide]({{ '/subjects/quick-start-guide/' | relative_url }}) for detailed instructions for teachers and students.
 
-**Ready to dive in?** [Access the Algebra 1 AI Tutor]({{ page.chatgpt_link }}){: .btn .btn-primary target="_blank"}
+**Ready to dive in?** [Access the Algebra 1 AI Tutor](https://chatgpt.com/g/g-686c913bf2b0819191df0a0bdd6f3d97-noesis-algebra-1-tutor){: .btn .btn-primary target="_blank"}
 
 ## 📖 Support Resources
 
