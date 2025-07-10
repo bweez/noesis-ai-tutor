@@ -7,7 +7,6 @@ Thank you for your interest in contributing to Noesis! This project thrives on c
 ### For Educators
 - **Add New Subjects**: Create new subject folders with bot configurations and questions
 - **Improve Questions**: Enhance existing questions or add new ones to current subjects
-- **Share Examples**: Contribute anonymized conversation examples (with permission)
 - **Refine Rubrics**: Help improve assessment criteria and grading guidelines
 
 ### For Students
@@ -34,18 +33,14 @@ Thank you for your interest in contributing to Noesis! This project thrives on c
 - Place in appropriate difficulty folder
 - Include learning objectives and assessment criteria
 
-**Examples/Conversations:**
-- Ensure all personal information is removed
-- Follow the example format in `examples/`
-- Include teacher commentary explaining what makes it effective
 
 ### 2. Set Up Your Development Environment
 
 ```bash
 # Fork the repository on GitHub
 # Clone your fork
-git clone https://github.com/YOUR-USERNAME/ai-tutor-framework.git
-cd ai-tutor-framework
+git clone https://github.com/bweez/noesis-ai-tutor.git
+cd noesis-ai-tutor
 
 # Create a new branch for your contribution
 git checkout -b add-biology-subject
@@ -58,9 +53,8 @@ git checkout -b improve-algebra-questions
 Each subject must include:
 - `README.md` (overview and quick start)
 - `bot-config.md` (ChatGPT custom instructions)
-- `questions/` folder with beginner, intermediate, advanced subfolders
+- `questions/` folder with questions in it
 - `rubrics/` folder with assessment guidelines
-- `examples/` folder with sample conversations
 - `resources/` folder with setup guides
 
 ## 📋 Contribution Guidelines
@@ -130,14 +124,12 @@ Contributions will be evaluated on:
 ```
 subjects/your-subject/
 ├── README.md
-├── bot-config.md
 ├── questions/
 │   ├── beginner/
 │   ├── intermediate/
 │   ├── advanced/
 │   └── README.md
 ├── rubrics/
-├── examples/
 └── resources/
 ```
 
@@ -152,13 +144,6 @@ subjects/your-subject/
 2. Make focused changes that enhance learning
 3. Test changes with students if possible
 4. Document what you changed and why
-
-### Adding Examples
-
-1. Ensure all conversations are anonymous
-2. Include teacher commentary explaining effectiveness
-3. Show range of student engagement levels
-4. Highlight specific critical thinking behaviors
 
 ## 🤝 Community Guidelines
 
