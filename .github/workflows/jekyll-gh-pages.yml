@@ -43,14 +43,14 @@ jobs:
       - name: Build Jekyll Site
         run: |
           cd noesis-docs
-          bundle exec jekyll build --destination ../_site
+          bundle exec jekyll build --destination ./_site
         env:
           JEKYLL_ENV: production
           
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./_site
+          path: ./noesis-docs/_site
 
   deploy:
     environment:

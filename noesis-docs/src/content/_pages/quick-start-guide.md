@@ -87,7 +87,7 @@ Remember, you're being evaluated on your **critical thinking process**, not just
 - **Documentation**: Check our comprehensive [framework guides]({{ '/framework/' | relative_url }})
 - **Examples**: Browse [real conversation samples]({{ '/examples/' | relative_url }})
 - **Community**: Connect with other educators through our [blog]({{ '/blog/' | relative_url }})
-- **Technical Support**: Visit our [GitHub repository](https://github.com/{{ site.github_username }}/ai-tutor-framework)
+- **Technical Support**: Visit our [GitHub repository](https://github.com/bweez/noesis-ai-tutor)
 
 ---
 
