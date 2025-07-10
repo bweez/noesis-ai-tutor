@@ -9,7 +9,17 @@ permalink: /framework/tools-onboarding/
 
 # 👩‍🏫 Teacher Tools & Onboarding Guide
 
-Welcome to the Noesis AI Tutor Framework! This guide will walk you through everything you need to successfully implement AI tutoring in your classroom.
+Welcome to the Noesis AI Tutor Framework! 
+
+<div class="important-admission">
+<p><strong>First an admission: none of this is needed.</strong> If you wanted to copy this system in its simplest form, just encourage students to ask follow up questions to ChatGPT and have them share their conversations. That's really all this is.</p>
+
+<p>As people who use AI more and more we are discovering better ways to use it. We built this to encourage a better way to use large language models (LLMs).</p>
+
+<p><strong>The most interesting results come from questioning the output to see if it stands up to a critical eye.  True for humans and AI.</strong></p>
+</div>
+
+This guide will walk you through everything you need to successfully implement AI tutoring in your classroom.
 
 ## 🎯 Quick Start Overview
 

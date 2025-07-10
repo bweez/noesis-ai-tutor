@@ -6,7 +6,7 @@ description: "Explore spatial relationships and geometric reasoning through inte
 permalink: /subjects/geometry/
 grade_levels: [9, 10, 11]
 difficulty_levels: [beginner, intermediate, advanced]
-chatgpt_link: "https://chatgpt.com/g/g-example-geometry-tutor"
+chatgpt_link: "https://chatgpt.com/g/g-686f1535ffec8191bebec56ffa29a7f6-noesis-geometry-tutor"
 key_topics:
   - "Points, lines, and planes"
   - "Angles and angle relationships"

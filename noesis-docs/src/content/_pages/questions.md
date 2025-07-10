@@ -5,6 +5,12 @@ description: "Search and discover questions across all subjects with our compreh
 permalink: /questions/
 ---
 
+<!-- 
+MAINTAINER NOTE: When adding new questions, update the questionsData array in the JavaScript section below.
+Each new question should follow the same format with id, title, description, url, subject, etc.
+This could be automated in the future with a Jekyll plugin or CLI command.
+-->
+
 # 📝 Questions Library
 
 Search and discover questions designed to promote critical thinking through AI-assisted learning.
@@ -26,7 +32,9 @@ Search and discover questions designed to promote critical thinking through AI-a
 <select id="search-filters" class="form-select">
 <option value="all">All Subjects</option>
 <option value="algebra-1">Algebra 1</option>
-<!-- Add more subjects as they are created -->
+<option value="biology">Biology</option>
+<option value="chemistry">Chemistry</option>
+<option value="geometry">Geometry</option>
 </select>
 </div>
 </div>
@@ -67,23 +75,125 @@ Search and discover questions designed to promote critical thinking through AI-a
 </div>
 
 <script>
-// Questions data - generated from Jekyll data
+// Questions data - manually maintained for now (can be automated later)
 const questionsData = [
-{% for question in site.data.algebra-1-questions %}
 {
-id: {{ forloop.index }},
-title: {{ question.title | jsonify }},
-description: {{ question.description | jsonify }},
-url: {{ question.url | relative_url | jsonify }},
+id: 1,
+title: "Linear Equations: Solving for x",
+description: "Learn to solve linear equations while understanding the mathematical reasoning behind each step",
+url: "/ai-tutor-framework/noesis-docs/subjects/algebra-1/questions/linear-equations-solving/",
 subject: "algebra-1",
 subjectDisplay: "Algebra 1",
-difficulty: {{ question.difficulty | jsonify }},
-gradeLevel: {{ question.grade_level | jsonify }},
-timeEstimate: {{ question.time_estimate | jsonify }},
-tags: {{ question.tags | jsonify }},
-chatgptLink: {{ question.chatgpt_link | jsonify }}
-}{% unless forloop.last %},{% endunless %}
-{% endfor %}
+difficulty: "beginner",
+gradeLevel: "8-10",
+timeEstimate: "15-20 minutes",
+tags: ["linear-equations", "inverse-operations", "algebraic-reasoning", "equation-solving"],
+chatgptLink: "https://chatgpt.com/g/g-686c913bf2b0819191df0a0bdd6f3d97-noesis-algebra-1-tutor"
+},
+{
+id: 2,
+title: "Quadratic Functions: Finding Vertex Form",
+description: "Explore quadratic functions and discover how to transform them into vertex form",
+url: "/ai-tutor-framework/noesis-docs/subjects/algebra-1/questions/quadratic-vertex-form/",
+subject: "algebra-1",
+subjectDisplay: "Algebra 1",
+difficulty: "intermediate",
+gradeLevel: "9-11",
+timeEstimate: "25-30 minutes",
+tags: ["quadratic-functions", "vertex-form", "completing-square", "parabola"],
+chatgptLink: "https://chatgpt.com/g/g-686c913bf2b0819191df0a0bdd6f3d97-noesis-algebra-1-tutor"
+},
+{
+id: 3,
+title: "Systems of Equations: Substitution vs Elimination",
+description: "Explore different methods for solving systems and understand when each approach is most effective",
+url: "/ai-tutor-framework/noesis-docs/subjects/algebra-1/questions/systems-equations-methods/",
+subject: "algebra-1",
+subjectDisplay: "Algebra 1",
+difficulty: "intermediate",
+gradeLevel: "9-10",
+timeEstimate: "20-25 minutes",
+tags: ["systems-equations", "substitution", "elimination", "algebraic-reasoning"],
+chatgptLink: "https://chatgpt.com/g/g-686c913bf2b0819191df0a0bdd6f3d97-noesis-algebra-1-tutor"
+},
+{
+id: 4,
+title: "Cell Transport: Osmosis vs Active Transport",
+description: "Investigate how cells control what enters and leaves through their membranes",
+url: "/ai-tutor-framework/noesis-docs/subjects/biology/questions/cell-transport-mechanisms/",
+subject: "biology",
+subjectDisplay: "Biology",
+difficulty: "intermediate",
+gradeLevel: "9-12",
+timeEstimate: "20-25 minutes",
+tags: ["cell-biology", "membrane-transport", "osmosis", "active-transport", "homeostasis"],
+chatgptLink: "https://chatgpt.com/g/g-686f13c03bd88191f40e4e9bcc6a7d85-noesis-biology-tutor"
+},
+{
+id: 5,
+title: "Genetics: Inheritance Patterns and Punnett Squares",
+description: "Explore how traits are passed from parents to offspring through genetic analysis",
+url: "/ai-tutor-framework/noesis-docs/subjects/biology/questions/inheritance-patterns/",
+subject: "biology",
+subjectDisplay: "Biology",
+difficulty: "intermediate",
+gradeLevel: "9-12",
+timeEstimate: "25-30 minutes",
+tags: ["genetics", "inheritance", "punnett-squares", "alleles", "phenotype", "genotype"],
+chatgptLink: "https://chatgpt.com/g/g-686f13c03bd88191f40e4e9bcc6a7d85-noesis-biology-tutor"
+},
+{
+id: 6,
+title: "Ionic vs. Covalent Bonding: Understanding Chemical Bonds",
+description: "Explore the fundamental differences between ionic and covalent bonds and predict bonding types based on electronegativity",
+url: "/ai-tutor-framework/noesis-docs/subjects/chemistry/questions/ionic-vs-covalent-bonding/",
+subject: "chemistry",
+subjectDisplay: "Chemistry",
+difficulty: "intermediate",
+gradeLevel: "10-12",
+timeEstimate: "20-25 minutes",
+tags: ["chemical-bonding", "electronegativity", "ionic-bonds", "covalent-bonds", "molecular-structure"],
+chatgptLink: "https://chatgpt.com/g/g-example-chemistry-tutor"
+},
+{
+id: 7,
+title: "Stoichiometry: Mole Ratios and Chemical Calculations",
+description: "Master the quantitative relationships in chemical reactions through mole ratio calculations",
+url: "/ai-tutor-framework/noesis-docs/subjects/chemistry/questions/stoichiometry-mole-ratios/",
+subject: "chemistry",
+subjectDisplay: "Chemistry",
+difficulty: "intermediate",
+gradeLevel: "10-12",
+timeEstimate: "25-30 minutes",
+tags: ["stoichiometry", "mole-ratios", "chemical-equations", "quantitative-analysis", "molar-mass"],
+chatgptLink: "https://chatgpt.com/g/g-example-chemistry-tutor"
+},
+{
+id: 8,
+title: "Triangle Congruence: Proof Methods and Logic",
+description: "Explore triangle congruence theorems and develop proof-writing skills",
+url: "/ai-tutor-framework/noesis-docs/subjects/geometry/questions/triangle-congruence-proofs/",
+subject: "geometry",
+subjectDisplay: "Geometry",
+difficulty: "intermediate",
+gradeLevel: "9-11",
+timeEstimate: "30-35 minutes",
+tags: ["triangle-congruence", "proofs", "sss", "sas", "asa", "aas", "logical-reasoning"],
+chatgptLink: "https://chatgpt.com/g/g-686f1535ffec8191bebec56ffa29a7f6-noesis-geometry-tutor"
+},
+{
+id: 9,
+title: "Area and Perimeter: Optimization Problems",
+description: "Explore the relationship between area and perimeter in optimization contexts",
+url: "/ai-tutor-framework/noesis-docs/subjects/geometry/questions/area-perimeter-optimization/",
+subject: "geometry",
+subjectDisplay: "Geometry",
+difficulty: "advanced",
+gradeLevel: "10-12",
+timeEstimate: "35-40 minutes",
+tags: ["area", "perimeter", "optimization", "rectangles", "calculus-preview", "problem-solving"],
+chatgptLink: "https://chatgpt.com/g/g-686f1535ffec8191bebec56ffa29a7f6-noesis-geometry-tutor"
+}
 ];
 
 // Initialize the questions table

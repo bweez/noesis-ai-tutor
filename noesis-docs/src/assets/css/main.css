@@ -522,6 +522,96 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.5rem;
 }
 
+/* Mobile-first button improvements */
+.btn {
+    font-weight: 500;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-lg {
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+}
+
+/* Important Callout Styles */
+.important-admission {
+    background: linear-gradient(135deg, #fff3cd 0%, #fef7e0 100%);
+    border: 2px solid #ffc107;
+    border-left: 6px solid #f59e0b;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+}
+
+.important-admission::before {
+    content: "💡";
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: #ffc107;
+    padding: 8px 12px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.important-admission h3 {
+    color: #b45309;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}
+
+.important-admission p {
+    color: #92400e;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.important-admission p:last-child {
+    margin-bottom: 0;
+}
+
+.important-admission strong {
+    color: #78350f;
+}
+
+/* Alternative styles for different types of callouts */
+.callout {
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-left: 4px solid;
+}
+
+.callout-info {
+    background-color: #e3f2fd;
+    border-left-color: #2196f3;
+    color: #0d47a1;
+}
+
+.callout-warning {
+    background-color: #fff3e0;
+    border-left-color: #ff9800;
+    color: #e65100;
+}
+
+.callout-success {
+    background-color: #e8f5e8;
+    border-left-color: #4caf50;
+    color: #1b5e20;
+}
+
+.callout-danger {
+    background-color: #ffebee;
+    border-left-color: #f44336;
+    color: #b71c1c;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .hero-section h1 {
@@ -685,18 +775,6 @@ a:focus, button:focus, input:focus {
     to { transform: rotate(360deg); }
 }
 
-/* Mobile-first button improvements */
-.btn {
-    font-weight: 500;
-    border-radius: 0.5rem;
-    transition: all 0.3s ease;
-}
-
-.btn-lg {
-    padding: 0.75rem 2rem;
-    font-size: 1.1rem;
-}
-
 /* Icon sizing improvements */
 .fa-10x {
     font-size: 8em;
@@ -746,4 +824,44 @@ h5 {
 /* Smooth scroll behavior */
 html {
     scroll-behavior: smooth;
+}
+
+/* Important Callout Styles */
+.important-admission {
+    background: linear-gradient(135deg, #fff3cd 0%, #fef7e0 100%);
+    border: 2px solid #ffc107;
+    border-left: 6px solid #f59e0b;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+}
+
+.important-admission::before {
+    content: "💡";
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: #ffc107;
+    padding: 8px 12px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.important-admission p {
+    color: #92400e;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.important-admission p:last-child {
+    margin-bottom: 0;
+}
+
+.important-admission strong {
+    color: #78350f;
+    font-weight: 600;
 }
