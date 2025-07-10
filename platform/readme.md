@@ -60,6 +60,33 @@ We're actively seeking contributors in these areas:
 - **Fine-tuning pipelines** for subject-specific tutors
 - **Cost optimization** and usage monitoring
 
+## 🔗 Integrated GPT Management
+
+### Centralized Configuration System
+Our platform includes an innovative **single source of truth** system for GPT management:
+
+- **Automatic Integration**: Jekyll site dynamically pulls GPT URLs from configuration files
+- **No Duplicate Maintenance**: Update URLs in one place, reflected everywhere automatically
+- **Error Prevention**: Built-in validation and graceful handling of missing configurations
+- **Future-Proof**: Ready for multi-LLM support and API integrations
+
+**Key Benefits:**
+```yaml
+# Instead of maintaining URLs in multiple places:
+deployment:
+  chatgpt_url: "https://chat.openai.com/g/g-your-actual-id"  # Single source of truth
+```
+
+```liquid
+<!-- Templates automatically get the URL: -->
+{% assign gpt_url = "algebra-1" | gpt_url %}
+{% if gpt_url %}
+  <a href="{{ gpt_url }}">Open AI Tutor</a>
+{% endif %}
+```
+
+See [GPT Integration Guide](./llm-configs/openai/GPT_INTEGRATION.md) for implementation details.
+
 ## 🤝 Contributing to Open Source Education
 
 ### Why Open Source Matters in Education

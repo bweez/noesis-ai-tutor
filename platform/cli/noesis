@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+"""
+Noesis CLI - Content Management Tool
+A modular CLI tool for managing Noesis AI Tutor Framework content.
+
+Designed to be API-ready with reusable components.
+"""
+
+import click
+import sys
+from pathlib import Path
+
+# Add the src directory to the path for imports
+CLI_ROOT = Path(__file__).parent
+sys.path.insert(0, str(CLI_ROOT / "src"))
+
+from noesis.commands import gpt, content, validate
+
+
+@click.group()
+@click.version_option(version="1.0.0")
+@click.pass_context
+def cli(ctx):
+    """
+    Noesis AI Tutor Framework - Content Management CLI
+    
+    A modular tool for managing GPT configurations, content, and validations.
+    Designed with API-reusable components.
+    """
+    # Ensure context object exists
+    ctx.ensure_object(dict)
+    
+    # Set up global configuration
+    ctx.obj['root_path'] = CLI_ROOT.parent.parent  # Navigate to project root
+    ctx.obj['platform_path'] = ctx.obj['root_path'] / 'platform'
+    ctx.obj['docs_path'] = ctx.obj['root_path'] / 'noesis-docs'
+
+
+# Register command groups
+cli.add_command(gpt.gpt)
+cli.add_command(content.content)
+cli.add_command(validate.validate)
+
+
+if __name__ == '__main__':
+    cli()
