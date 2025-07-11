@@ -1,3 +1,7 @@
+---
+layout: null
+---
+
 // Search functionality for AI Tutor Framework
 (function() {
     'use strict';
@@ -8,26 +12,50 @@
 
     // Initialize search when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
-        loadSearchData().then(() => {
-            buildSearchIndex();
-            initializeSearch();
-            initializeFilters();
-        });
+        buildSearchIndex();
+        initializeSearch();
+        initializeFilters();
     });
-
-    // Load search data from JSON file
-    async function loadSearchData() {
-        try {
-            const response = await fetch('/search-data.json');
-            searchData = await response.json();
-        } catch (error) {
-            console.error('Failed to load search data:', error);
-            searchData = [];
-        }
-    }
 
     // Build the search index
     function buildSearchIndex() {
+        // Collect all searchable content
+        {% assign searchable_content = "" | split: "" %}
+        
+        {% for subject in site.subjects %}
+        {% assign searchable_content = searchable_content | push: subject %}
+        {% endfor %}
+        
+        {% for framework_item in site.framework %}
+        {% assign searchable_content = searchable_content | push: framework_item %}
+        {% endfor %}
+        
+        {% for assignment in site.assignments %}
+        {% assign searchable_content = searchable_content | push: assignment %}
+        {% endfor %}
+        
+        {% for page in site.pages %}
+        {% if page.title %}
+        {% assign searchable_content = searchable_content | push: page %}
+        {% endif %}
+        {% endfor %}
+
+        searchData = [
+            {% for item in searchable_content %}
+            {
+                id: {{ forloop.index }},
+                title: {{ item.title | jsonify }},
+                content: {{ item.content | strip_html | truncate: 500 | jsonify }},
+                url: {{ item.url | relative_url | jsonify }},
+                type: "{{ item.collection }}",
+                difficulty: {{ item.difficulty | jsonify }},
+                subject: {{ item.subject | jsonify }},
+                tags: {{ item.tags | jsonify }},
+                grade_level: {{ item.grade_level | jsonify }}
+            }{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+        ];
+
         // Build Lunr index
         searchIndex = lunr(function() {
             this.ref('id');
