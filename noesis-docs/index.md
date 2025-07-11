@@ -1,11 +1,11 @@
 ---
 layout: homepage
-title: "Noesis - AI Tutor Framework"
+title: "Noesis - AI Tutors"
 description: "Open-source framework for building subject-specific AI tutors that enhance student learning through critical thinking"
 permalink: /
 ---
 
-# 🎓 Noesis AI Tutor Framework
+# 🎓 Noesis AI Tutors
 {: .text-center .mb-4}
 
 Open-source framework for building and using subject specific AI tutors that enhance student learning through critical thinking and guided discovery.
@@ -37,7 +37,7 @@ Open-source framework for building and using subject specific AI tutors that enh
     <h3>👨‍💻 I'm a Developer</h3>
     <p>Interested in contributing?</p>
     <div class="btn-container">
-      <a href="https://github.com/bweez/noesis-ai-tutor" class="btn btn-dark btn-lg" target="_blank">View on GitHub</a>
+      <a href="https://github.com/bweez/noesis-ai-tutor" class="btn btn-dark btn-lg fa-code" target="_blank">View on GitHub</a>
       <a href="{{ '/framework/' | relative_url }}" class="btn btn-outline-dark">Documentation</a>
     </div>
   </div>

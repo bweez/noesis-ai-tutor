@@ -1,6 +1,6 @@
 # Site settings
 title: "Noesis"
-subtitle: "AI Tutor Framework"
+subtitle: "AI Tutors"
 description: "Open-source framework for building subject-specific AI tutors that enhance student learning through critical thinking"
 baseurl: "" # Custom domain - no path prefix needed
 url: "https://noesis.academy" # Custom domain
