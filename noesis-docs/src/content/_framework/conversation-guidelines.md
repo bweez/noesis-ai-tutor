@@ -1,3 +1,10 @@
+---
+title: "Conversation Guidelines"
+description: "Best practices for effective student-AI tutor interactions"
+category: "guides"
+order: 1
+---
+
 # Conversation Guidelines
 
 Best practices for productive student-AI tutor interactions.

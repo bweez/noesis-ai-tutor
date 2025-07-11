@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+<div class="framework-hero">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h1 class="framework-hero-title">{{ page.title }}</h1>
+                <p class="framework-hero-description">{{ page.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="framework-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                {{ content }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Framework Quick Actions -->
+<div class="framework-actions">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h3 class="mb-4">Ready to Get Started?</h3>
+                <div class="framework-action-buttons">
+                    <a href="{{ '/subjects/' | relative_url }}" class="btn btn-primary btn-lg me-3 mb-3">
+                        <i class="fas fa-book-open me-2"></i>View All Subjects
+                    </a>
+                    <a href="{{ '/questions/' | relative_url }}" class="btn btn-outline-primary btn-lg mb-3">
+                        <i class="fas fa-search me-2"></i>Browse Questions
+                    </a>
+                </div>
+                <div class="mt-4">
+                    <a href="{{ '/framework/tools-onboarding/' | relative_url }}" class="btn btn-success">
+                        <i class="fas fa-rocket me-2"></i>Teacher Onboarding
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

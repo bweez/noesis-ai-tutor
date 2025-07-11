@@ -1,3 +1,10 @@
+---
+title: "Subject Structure Guide"
+description: "Standard folder organization and file structure for creating new subjects"
+category: "setup"
+order: 2
+---
+
 # Subject Folder Structure
 
 Each subject should follow this standardized structure to ensure consistency and ease of use.

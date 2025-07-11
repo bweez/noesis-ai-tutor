@@ -1,0 +1,304 @@
+/* Framework page styling - consistent with homepage */
+
+/* Framework hero section - matches homepage hero */
+.framework-hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0b5ed7 100%);
+    color: white;
+    padding: 4rem 0 5rem 0;
+    margin-bottom: 0;
+}
+
+.framework-hero-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.framework-hero-description {
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* Framework content section */
+.framework-content {
+    padding: 4rem 0;
+    background: var(--light-color);
+}
+
+.framework-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-weight: var(--font-weight-semibold);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    text-align: center;
+}
+
+.framework-content h3 {
+    color: var(--primary-color);
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-weight: var(--font-weight-semibold);
+    font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+/* Framework component cards - matches homepage quick-start-card style */
+.framework-component {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    border: 1px solid #e9ecef;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.framework-component:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.framework-component h4 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: var(--font-weight-semibold);
+}
+
+.framework-component h4 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.framework-component h4 a:hover {
+    text-decoration: underline;
+}
+
+.framework-component p {
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.framework-component .btn {
+    border-radius: var(--border-radius);
+    padding: 0.75rem 2rem;
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    margin-top: auto;
+    align-self: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Philosophy section - similar to homepage philosophy cards */
+.framework-philosophy {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 3rem 2rem;
+    margin: 3rem 0;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid #e9ecef;
+}
+
+.framework-philosophy h2 {
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--primary-color);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+.framework-philosophy h3 {
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    margin-top: 2.5rem;
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-semibold);
+}
+
+.framework-philosophy h3:first-of-type {
+    margin-top: 0;
+}
+
+.framework-philosophy h3::before {
+    content: attr(data-icon);
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0b5ed7 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.framework-philosophy ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+    background: var(--light-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+}
+
+.framework-philosophy li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e9ecef;
+    position: relative;
+    padding-left: 2rem;
+    line-height: 1.6;
+    color: var(--dark-color);
+}
+
+.framework-philosophy li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.framework-philosophy li::before {
+    content: "→";
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+    font-size: 1.1rem;
+}
+
+/* Actions section - matches homepage styling */
+.framework-actions {
+    background: white;
+    padding: 4rem 0;
+    border-top: 1px solid #e9ecef;
+}
+
+.framework-actions h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--dark-color);
+    margin-bottom: 2.5rem;
+    font-weight: var(--font-weight-semibold);
+}
+
+.framework-action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.framework-action-buttons .btn {
+    border-radius: var(--border-radius);
+    padding: 0.875rem 2.5rem;
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 200px;
+    justify-content: center;
+}
+
+.framework-action-buttons .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.framework-action-buttons .btn-outline-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.framework-action-buttons .btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Grid layout for framework components */
+.framework-components-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .framework-hero {
+        padding: 3rem 0 4rem 0;
+    }
+    
+    .framework-hero-title {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+    }
+    
+    .framework-hero-description {
+        font-size: clamp(1rem, 2.5vw, 1.2rem);
+    }
+    
+    .framework-content {
+        padding: 3rem 0;
+    }
+    
+    .framework-component {
+        padding: 1.5rem;
+    }
+    
+    .framework-philosophy {
+        padding: 2rem;
+    }
+    
+    .framework-action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .framework-action-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .framework-components-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .framework-component h4 {
+        font-size: 1.1rem;
+    }
+    
+    .framework-philosophy h3 {
+        font-size: 1.1rem;
+    }
+    
+    .framework-philosophy li {
+        padding-left: 1.5rem;
+        font-size: 0.95rem;
+    }
+}

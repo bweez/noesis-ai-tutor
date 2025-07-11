@@ -1,3 +1,10 @@
+---
+title: "ChatGPT Bot Template"
+description: "Template for creating effective AI tutor custom instructions for any subject"
+category: "setup"
+order: 1
+---
+
 # ChatGPT Custom Bot Template
 
 ## Bot Name

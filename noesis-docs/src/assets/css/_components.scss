@@ -1,0 +1,165 @@
+/* Component styles - Cards, buttons, badges, etc. */
+
+/* Cards */
+.card {
+    border: none;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    border-radius: var(--border-radius-lg);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.card-header {
+    background-color: var(--light-color);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* Buttons */
+.btn {
+    font-weight: var(--font-weight-medium);
+    border-radius: var(--border-radius);
+    transition: all var(--transition-normal);
+}
+
+.btn-lg {
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+}
+
+/* Badges */
+.badge {
+    font-size: 0.75em;
+    font-weight: var(--font-weight-medium);
+}
+
+.difficulty-beginner {
+    background-color: var(--success-color) !important;
+}
+
+.difficulty-intermediate {
+    background-color: var(--warning-color) !important;
+    color: var(--dark-color) !important;
+}
+
+.difficulty-advanced {
+    background-color: var(--danger-color) !important;
+}
+
+/* Callout boxes */
+.callout {
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-left: 4px solid;
+}
+
+.callout-info {
+    background-color: #e3f2fd;
+    border-left-color: #2196f3;
+    color: #0d47a1;
+}
+
+.callout-warning {
+    background-color: #fff3e0;
+    border-left-color: #ff9800;
+    color: #e65100;
+}
+
+.callout-success {
+    background-color: #e8f5e8;
+    border-left-color: #4caf50;
+    color: #1b5e20;
+}
+
+.callout-danger {
+    background-color: #ffebee;
+    border-left-color: #f44336;
+    color: #b71c1c;
+}
+
+/* Important admission callout */
+.important-admission {
+    background: linear-gradient(135deg, #fff3cd 0%, #fef7e0 100%);
+    border: 2px solid #ffc107;
+    border-left: 6px solid #f59e0b;
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+}
+
+.important-admission::before {
+    content: "💡";
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: #ffc107;
+    padding: 8px 12px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.important-admission h3 {
+    color: #b45309;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}
+
+.important-admission p {
+    color: #92400e;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.important-admission p:last-child {
+    margin-bottom: 0;
+}
+
+.important-admission strong {
+    color: #78350f;
+    font-weight: var(--font-weight-semibold);
+}
+
+/* Loading spinner */
+.spinner {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 0.125rem solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Stats cards */
+.stats-card {
+    text-align: center;
+    padding: 2rem;
+}
+
+.stats-card .stats-number {
+    font-size: 3rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-color);
+    display: block;
+}
+
+.stats-card .stats-label {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}

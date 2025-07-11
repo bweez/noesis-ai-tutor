@@ -4,21 +4,21 @@
 /* AI Tutor Framework - Modular CSS Architecture */
 
 /* Base styles and variables */
-@import "base";
+@import "_base.scss";
 
 /* Core components */
-@import "components";
+@import "_components.scss";
 
 /* Layout systems */
-@import "grid";
+@import "_grid.scss";
 
 /* Page-specific styles */
-@import "homepage";
-@import "subjects";
-@import "questions";
+@import "_homepage.scss";
+@import "_subjects.scss";
+@import "_questions.scss";
 
 /* Responsive utilities */
-@import "responsive";
+@import "_responsive.scss";
 
 /* Framework-specific styles */
-@import "framework";
+@import "_framework.scss";

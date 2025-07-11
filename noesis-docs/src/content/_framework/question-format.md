@@ -1,3 +1,10 @@
+---
+title: "Question Format Guide"
+description: "Template and guidelines for creating effective learning questions"
+category: "guides"
+order: 2
+---
+
 # Question Format Template
 
 This template helps create effective questions that promote critical thinking and meaningful AI tutoring conversations.

@@ -1,0 +1,111 @@
+/* Page-specific styles */
+
+/* Homepage */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0b5ed7 100%);
+    color: white;
+    padding: 4rem 0 5rem 0;
+    margin-bottom: 0;
+}
+
+.hero-section h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-section .lead {
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.hero-illustration {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Quick start cards */
+.quick-start-card {
+    background: var(--light-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    text-align: center;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.quick-start-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.quick-start-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.quick-start-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.quick-start-card p {
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+    color: var(--secondary-color);
+}
+
+/* Philosophy cards */
+.philosophy-card {
+    border: 2px solid #e9ecef;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    height: 100%;
+}
+
+.philosophy-card.primary { border-color: var(--primary-color); }
+.philosophy-card.success { border-color: var(--success-color); }
+.philosophy-card.info { border-color: var(--info-color); }
+.philosophy-card.warning { border-color: var(--warning-color); }
+.philosophy-card.secondary { border-color: var(--secondary-color); }
+
+.philosophy-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* Involvement cards */
+.involvement-card {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.involvement-card .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.involvement-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.involvement-card ul {
+    text-align: left;
+    flex-grow: 1;
+    margin-bottom: 0;
+}

@@ -1,0 +1,92 @@
+/* Grid layouts for different page sections */
+
+/* Base grid utilities */
+.grid-auto-fit {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Homepage grids */
+.quick-start-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.involvement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Subject and question grids */
+.question-grid, .subject-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.question-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.subject-grid {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+
+.subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Framework grids */
+.framework-docs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.usage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 768px) {
+    .question-grid, 
+    .subject-grid,
+    .quick-start-grid,
+    .philosophy-grid,
+    .involvement-grid,
+    .framework-docs-grid,
+    .subjects-grid,
+    .usage-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .planned-subjects ul {
+        columns: 1;
+    }
+}
+
+@media (min-width: 992px) {
+    .planned-subjects ul {
+        columns: 2;
+        column-gap: 2rem;
+    }
+}

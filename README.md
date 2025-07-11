@@ -116,14 +116,19 @@ Education should be **accessible**, **transparent**, and **collaborative**. By m
    cd noesis-ai-tutor
    ```
 
-2. **Choose your contribution area**
-   - [LLM Configurations](./llm-configs/) - Create custom AI tutors
-   - [Assessment Tools](./assessment-tools/) - Build evaluation systems
-   - [CLI Tools](./cli/) - Developer and educator utilities
-   - [📚 Main Documentation](../noesis-docs/) - Content management tooling 
+2. **Set up your development environment**
+   - 📋 **Detailed Setup**: See our [Technical Setup Guide](TECHNICAL_SETUP.md) for complete installation instructions
+   - 🚀 **Quick Start**: `cd noesis-docs && bundle install && bundle exec jekyll serve`
 
-3. **Read the contribution guidelines**
-   - Check out [CONTRIBUTING.md](../CONTRIBUTING.md) for detailed guidelines
+3. **Choose your contribution area**
+   - [LLM Configurations](./platform/llm-configs/) - Create custom AI tutors
+   - [Assessment Tools](./platform/assessment-tools/) - Build evaluation systems
+   - [CLI Tools](./platform/cli/) - Developer and educator utilities
+   - [📚 Main Documentation](./noesis-docs/) - Content management tooling 
+
+4. **Read the contribution guidelines**
+   - 🤝 **Contributing Guide**: Check out [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines
+   - 🐛 **Report Issues**: Use our [GitHub Issues](https://github.com/bweez/noesis-ai-tutor/issues) for bugs and feature requests
 
 ### Development Philosophy
 
@@ -135,15 +140,34 @@ We believe in:
 
 ## 💬 Join the Community
 
+### 🤝 Ways to Contribute
+
+We welcome all types of contributions:
+
+- **🐛 Report Bugs**: Found something broken? [Open an issue](https://github.com/bweez/noesis-ai-tutor/issues/new?template=bug_report.md)
+- **💡 Suggest Features**: Have an idea? [Request a feature](https://github.com/bweez/noesis-ai-tutor/issues/new?template=feature_request.md)
+- **💻 Submit Code**: Ready to code? Check our [Contributing Guide](CONTRIBUTING.md)
+- **📚 Improve Docs**: Help make our guides clearer and more comprehensive
+- **🧪 Test & Feedback**: Try the framework with real students and share your experience
+- **🎨 Design & UX**: Help improve the user experience for teachers and students
+
+### 📞 Get Help & Support
+
+- **📖 Documentation**: Start with our [Technical Setup Guide](TECHNICAL_SETUP.md)
+- **💬 GitHub Discussions**: Ask questions and share ideas in [Discussions](https://github.com/bweez/noesis-ai-tutor/discussions)
+- **🐛 Bug Reports**: Use [GitHub Issues](https://github.com/bweez/noesis-ai-tutor/issues) for bugs and feature requests
+- **📧 Email**: Reach out directly for sensitive issues or partnership inquiries
+
 ### Connect With Us
 
-- **GitHub Discussions**: Share ideas and get help with development
-- **Social Media**: Reach out on Twitter [@AcademyNoesis](https://twitter.com/AcademyNoesis)
+- **GitHub**: [bweez/noesis-ai-tutor](https://github.com/bweez/noesis-ai-tutor)
+- **Social Media**: Follow [@AcademyNoesis](https://twitter.com/AcademyNoesis) for updates
 
 ### Stay Updated
+- **⭐ Star the Repository**: Get notified about new releases
+- **👀 Watch the Repository**: Stay informed about all activity
 - **Newsletter**: Monthly updates on project progress and opportunities
 - **Blog**: Deep dives into educational AI methodology and case studies
-- **Social Media**: Follow [@AcademyNoesis](https://twitter.com/AcademyNoesis) for quick updates
 
 ## 📋 Next Steps
 
@@ -159,12 +183,22 @@ Ready to contribute? Here's what to do:
 
 ## 🔗 Quick Links
 
-- [📚 Main Documentation](../noesis-docs/)
-- [🤖 LLM Configurations](./llm-configs/)
-- [📊 Assessment Tools](./assessment-tools/)
-- [⚙️ CLI Tools](./cli/)
-- [🤝 Contributing Guide](../CONTRIBUTING.md)
-- [📝 License](../LICENSE)
+### 📚 Documentation
+- [📚 Main Documentation](./noesis-docs/) - Live website and user guides
+- [🛠️ Technical Setup](TECHNICAL_SETUP.md) - Development environment setup
+- [� Contributing Guide](CONTRIBUTING.md) - How to contribute code, docs, and feedback
+
+### 🛠️ Development
+- [�🤖 LLM Configurations](./platform/llm-configs/) - AI tutor configurations
+- [📊 Assessment Tools](./platform/assessment-tools/) - Evaluation utilities  
+- [⚙️ CLI Tools](./platform/cli/) - Command-line utilities
+- [🐛 Issues](https://github.com/bweez/noesis-ai-tutor/issues) - Bug reports and feature requests
+- [💬 Discussions](https://github.com/bweez/noesis-ai-tutor/discussions) - Community Q&A
+
+### 📄 Project Info
+- [📝 License](LICENSE) - MIT License details
+- [🎯 Project Goals](#-project-goals) - Our mission and vision
+- [🚀 What We're Building](#-what-were-building) - Current components and roadmap
 
 **Together, we're building AI tools that make students better thinkers, not just better test-takers.**
 

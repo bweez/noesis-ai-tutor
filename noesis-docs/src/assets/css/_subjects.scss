@@ -1,0 +1,167 @@
+/* Subject-related page styles */
+
+/* Subject cards */
+.subject-card {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.subject-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.subject-card-header {
+    background: var(--light-color);
+    padding: 1.25rem;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.subject-card-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-semibold);
+}
+
+.subject-card-header h3 a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.subject-card-header h3 a:hover {
+    text-decoration: underline;
+}
+
+.subject-card-body {
+    padding: 1.25rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.subject-card-body > p {
+    margin-bottom: 1rem;
+}
+
+.subject-details {
+    margin-bottom: 1rem;
+}
+
+.subject-detail-item {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.subject-topics {
+    margin-top: auto;
+}
+
+.subject-topics ul {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    padding-left: 1.2rem;
+}
+
+.subject-topics li {
+    margin-bottom: 0.25rem;
+}
+
+.subject-card-footer {
+    padding: 1.25rem;
+    border-top: 1px solid #e9ecef;
+    background: #fafafa;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.subject-card-footer .btn {
+    flex: 1;
+    min-width: 120px;
+}
+
+/* Coming soon section */
+.coming-soon-section {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--light-color);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary-color);
+}
+
+.planned-subjects {
+    margin-top: 1rem;
+}
+
+.planned-subjects ul {
+    margin-bottom: 0;
+}
+
+.planned-subjects li {
+    break-inside: avoid;
+    margin-bottom: 0.5rem;
+}
+
+/* Usage cards */
+.usage-card {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+}
+
+.usage-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.usage-card ol {
+    margin-bottom: 0;
+}
+
+.usage-card li {
+    margin-bottom: 0.5rem;
+}
+
+/* Support resources */
+.support-resources {
+    background: #e3f2fd;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.support-resources ul {
+    margin-bottom: 0;
+}
+
+.support-resources li {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .subject-card-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .subject-card-footer {
+        flex-direction: column;
+    }
+    
+    .subject-card-footer .btn {
+        flex: none;
+    }
+}
