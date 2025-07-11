@@ -27,6 +27,27 @@ permalink: /framework/
 {% endif %}
 
 {% if guide_docs.size > 0 %}
+
+### 📚 Technical Documentation
+
+<div class="framework-components-grid">
+    <div class="framework-component">
+        <h4><a href="https://github.com/bweez/noesis-ai-tutor"></a>GitHub Code Repository</h4>
+        <p>GitHub is a code hosting platform for version control and collaboration.</p>
+        <a href="https://github.com/bweez/noesis-ai-tutor" class="btn btn-primary">
+            <i class="fas fa-code-fork"></i> View on GitHub
+        </a>
+    </div>
+    <div class="framework-component">
+        <h4><a href="https://github.com/bweez/noesis-ai-tutor/blob/main/CONTRIBUTING.md"></a>Code Contribution Guidelines</h4>
+        <p>Guidelines on how to submit requests for changes or code changes themselves.</p>
+        <a href="https://github.com/bweez/noesis-ai-tutor/blob/main/CONTRIBUTING.md" class="btn btn-primary">
+            <i class="fas fa-code"></i> View on GitHub
+        </a>
+    </div>
+</div>
+
+
 ### 📖 Implementation Guides
 
 <div class="framework-components-grid">
