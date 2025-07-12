@@ -6,12 +6,19 @@ module.exports = {
     '**/?(*.)+(spec|test).js'
   ],
   collectCoverageFrom: [
-    'unit/**/*.js',
     '../noesis-docs/**/*.js',
     '../platform/**/*.js',
-    '!unit/**/*.test.js',
-    '!unit/**/*.spec.js',
-    '!unit/**/node_modules/**',
+    '!../noesis-docs/_site/**',
+    '!../noesis-docs/node_modules/**',
+    '!../platform/**/node_modules/**',
+    '!../platform/**/test/**',
+    '!../platform/**/tests/**',
+    '!../platform/**/*.test.js',
+    '!../platform/**/*.spec.js',
+    '!../**/*.config.js',
+    '!**/webpack.config.js',
+    '!**/jest.config.js',
+    '!**/cypress.config.js',
     '!**/node_modules/**',
     '!**/coverage/**'
   ],

@@ -1,6 +1,9 @@
 // Import Cypress commands
 import './commands'
 
+// Import code coverage
+import '@cypress/code-coverage/support'
+
 // Import Cypress plugins
 import 'cypress-axe'
 import 'cypress-real-events/support'

@@ -1,6 +1,13 @@
 {
   "name": "noesis-testing",
   "private": true,
+  "scripts": {
+    "test:unit": "jest",
+    "test:e2e:coverage": "cypress run",
+    "test:ci": "cypress run --browser chrome --headless",
+    "cypress:verify": "cypress verify",
+    "coverage:reset": "rimraf coverage .nyc_output"
+  },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false,
     "stepDefinitions": "cypress/e2e/step_definitions/**/*.{js,ts}",
