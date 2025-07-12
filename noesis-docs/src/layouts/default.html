@@ -42,9 +42,10 @@
                 
                 <!-- Search -->
                 <div class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search..." id="search-input">
-                    <button class="btn btn-outline-light" type="button" id="search-button">
-                        <i class="fas fa-search"></i>
+                    <label for="search-input" class="visually-hidden">Search site content</label>
+                    <input class="form-control me-2" type="search" placeholder="Search..." id="search-input" aria-label="Search site content">
+                    <button class="btn btn-outline-light" type="button" id="search-button" aria-label="Submit search">
+                        <i class="fas fa-search" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
@@ -67,12 +68,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h5>{{ site.title }}</h5>
-                    {% if site.subtitle %}<h6 class="text-muted">{{ site.subtitle }}</h6>{% endif %}
+                    <h4>{{ site.title }}</h4>
+                    {% if site.subtitle %}<h5 class="text-muted">{{ site.subtitle }}</h5>{% endif %}
                     <p>{{ site.description }}</p>
                 </div>
                 <div class="col-md-6">
-                    <h5>Connect</h5>
+                    <h4>Connect</h4>
                     <div class="social-links">
                         {% if site.github_username %}
                         <a href="https://github.com/{{ site.github_username }}" class="text-light me-3">
@@ -99,7 +100,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Search Results</h5>
+                    <h4 class="modal-title">Search Results</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">

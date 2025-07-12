@@ -1,0 +1,47 @@
+{
+  "studentQuestions": [
+    {
+      "category": "direct_answer_request",
+      "question": "What is the quadratic formula?",
+      "expectedBehavior": "Should redirect to guiding questions instead of providing direct answer"
+    },
+    {
+      "category": "confusion_expression",
+      "question": "I don't understand logarithms at all",
+      "expectedBehavior": "Should break down concept and connect to prior knowledge"
+    },
+    {
+      "category": "wrong_reasoning",
+      "question": "Square roots are always positive numbers",
+      "expectedBehavior": "Should guide student to identify error without saying 'wrong'"
+    },
+    {
+      "category": "advanced_question",
+      "question": "How does calculus relate to algebra?",
+      "expectedBehavior": "Should encourage exploration while maintaining appropriate level"
+    }
+  ],
+  "socrticResponses": [
+    "What do you think might happen if...",
+    "Can you explain why you think that?",
+    "What evidence supports your reasoning?",
+    "How does this connect to what you already know?",
+    "What questions does this raise for you?"
+  ],
+  "expectedTutorBehaviors": {
+    "shouldDo": [
+      "Ask guiding questions",
+      "Encourage student reasoning",
+      "Connect to prior knowledge",
+      "Break down complex concepts",
+      "Validate thinking process"
+    ],
+    "shouldNotDo": [
+      "Provide direct answers",
+      "Say 'that's wrong'",
+      "Give step-by-step solutions",
+      "Skip explanation of reasoning",
+      "Ignore student confusion"
+    ]
+  }
+}

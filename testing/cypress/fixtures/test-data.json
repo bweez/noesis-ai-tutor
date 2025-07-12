@@ -1,0 +1,45 @@
+{
+  "subjects": [
+    {
+      "name": "Algebra 1",
+      "slug": "algebra-1",
+      "description": "Foundational algebraic concepts and problem-solving",
+      "hasGPT": true,
+      "gptUrl": "https://chatgpt.com/g/g-example-algebra-1"
+    },
+    {
+      "name": "Biology",
+      "slug": "biology",
+      "description": "Life sciences and biological processes",
+      "hasGPT": true,
+      "gptUrl": "https://chatgpt.com/g/g-example-biology"
+    },
+    {
+      "name": "Chemistry",
+      "slug": "chemistry",
+      "description": "Chemical reactions and molecular interactions",
+      "hasGPT": true,
+      "gptUrl": "https://chatgpt.com/g/g-example-chemistry"
+    },
+    {
+      "name": "Geometry",
+      "slug": "geometry",
+      "description": "Spatial reasoning and geometric proofs",
+      "hasGPT": true,
+      "gptUrl": "https://chatgpt.com/g/g-example-geometry"
+    }
+  ],
+  "expectedNavigation": [
+    "Subjects",
+    "Framework",
+    "Assignments",
+    "Questions"
+  ],
+  "frameworkSections": [
+    "Bot Template",
+    "Conversation Guidelines",
+    "Critical Thinking Rubric",
+    "Question Format",
+    "Subject Structure"
+  ]
+}

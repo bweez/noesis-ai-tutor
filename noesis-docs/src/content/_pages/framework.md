@@ -5,6 +5,15 @@ description: "Complete documentation and resources for implementing the Noesis A
 permalink: /framework/
 ---
 
+## 🚀 Framework Overview
+
+The Noesis AI Tutor Framework is designed to help educators create and implement AI-powered tutoring systems that promote critical thinking and deep learning. The framework focuses on:
+
+- **Educator-Friendly Tools**: Simple markdown-based content creation
+- **AI Tutor Integration**: Ready-to-use prompt templates and configurations
+- **Assessment Resources**: Rubrics and evaluation frameworks
+- **Community Collaboration**: Open source with clear contribution pathways
+
 {% assign framework_docs = site.framework | sort: 'order' %}
 {% assign setup_docs = framework_docs | where: "category", "setup" %}
 {% assign guide_docs = framework_docs | where: "category", "guides" %}
@@ -28,27 +37,7 @@ permalink: /framework/
 
 {% if guide_docs.size > 0 %}
 
-### 📚 Technical Documentation
-
-<div class="framework-components-grid">
-    <div class="framework-component">
-        <h4><a href="https://github.com/bweez/noesis-ai-tutor"></a>GitHub Code Repository</h4>
-        <p>GitHub is a code hosting platform for version control and collaboration.</p>
-        <a href="https://github.com/bweez/noesis-ai-tutor" class="btn btn-primary">
-            <i class="fas fa-code-fork"></i> View on GitHub
-        </a>
-    </div>
-    <div class="framework-component">
-        <h4><a href="https://github.com/bweez/noesis-ai-tutor/blob/main/CONTRIBUTING.md"></a>Code Contribution Guidelines</h4>
-        <p>Guidelines on how to submit requests for changes or code changes themselves.</p>
-        <a href="https://github.com/bweez/noesis-ai-tutor/blob/main/CONTRIBUTING.md" class="btn btn-primary">
-            <i class="fas fa-code"></i> View on GitHub
-        </a>
-    </div>
-</div>
-
-
-### 📖 Implementation Guides
+### 🎓 For Educators
 
 <div class="framework-components-grid">
 {% for doc in guide_docs %}
@@ -61,22 +50,26 @@ permalink: /framework/
 </div>
 {% endfor %}
 </div>
-{% endif %}
 
-{% if tool_docs.size > 0 %}
-### 📊 Assessment Tools
+### � For Developers
 
 <div class="framework-components-grid">
-{% for doc in tool_docs %}
-<div class="framework-component">
-    <h4><a href="{{ doc.url | relative_url }}">{{ doc.title }}</a></h4>
-    <p>{{ doc.description }}</p>
-    <a href="{{ doc.url | relative_url }}" class="btn btn-primary">
-        <i class="fas fa-tools"></i> View Tool
-    </a>
+    <div class="framework-component">
+        <h4><a href="/framework/technical-setup/">Technical Setup Guide</a></h4>
+        <p>Complete setup instructions for local development environment</p>
+        <a href="/framework/technical-setup/" class="btn btn-primary">
+            <i class="fas fa-cog"></i> Setup Guide
+        </a>
+    </div>
+    <div class="framework-component">
+        <h4><a href="https://github.com/bweez/noesis-ai-tutor">Source Code on GitHub</a></h4>
+        <p>Access the full codebase, file issues, and view project structure</p>
+        <a href="https://github.com/bweez/noesis-ai-tutor" class="btn btn-primary">
+            <i class="fas fa-code-fork"></i> View on GitHub
+        </a>
+    </div>
 </div>
-{% endfor %}
-</div>
+
 {% endif %}
 
 ---

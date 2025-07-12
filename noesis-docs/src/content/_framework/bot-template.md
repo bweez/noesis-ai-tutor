@@ -64,3 +64,36 @@ Remember: The goal is not just to help students get the right answer, but to dev
 - **Capabilities**: Web Browsing (if needed for current information)
 - **Code Interpreter**: [Yes/No depending on subject needs]
 - **DALL-E**: [Yes/No depending on visual needs]
+
+## 🚀 Deployment Setup
+
+### Creating Your Custom GPT
+
+1. **Access ChatGPT**: Go to [chatgpt.com](https://chatgpt.com) and log in
+2. **Create New GPT**: Click "Create a GPT" or "My GPTs" > "Create a GPT"
+3. **Configure Basic Settings**:
+   - Enter the bot name (e.g., "Biology Tutor")
+   - Add the description provided above
+   - Upload any knowledge files if applicable
+
+4. **Copy Instructions**: Paste the complete instructions template above into the "Instructions" field
+5. **Configure Capabilities**: Enable the appropriate settings (Web Browsing, Code Interpreter, DALL-E)
+6. **Test Your Bot**: Ask sample questions to ensure it responds appropriately
+7. **Save and Share**: Save your GPT and get the shareable link
+
+### Integration with Noesis Framework
+
+1. **Add Subject Page**: Create or update the subject page in `/subjects/[subject-name]/`
+2. **Link Your GPT**: Add the ChatGPT link to your subject's configuration
+3. **Test Integration**: Ensure the "Start AI Tutor" button works correctly
+4. **Create Questions**: Add subject-specific questions to the question bank
+
+### Deployment Checklist
+
+- [ ] GPT configured with complete instructions
+- [ ] Capabilities properly set for subject needs
+- [ ] Test conversations completed successfully
+- [ ] Subject page updated with GPT link
+- [ ] Questions added to subject question bank
+- [ ] Assessment rubric reviewed for subject
+- [ ] Documentation updated with new subject
