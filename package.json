@@ -10,24 +10,20 @@
     "stop": "testing/scripts/jekyll-server.sh stop",
     "restart": "testing/scripts/jekyll-server.sh restart",
     "setup": "npm install && npm --prefix testing run cypress:verify && npm run start",
-    
     "// Testing": "",
     "test": "testing/scripts/fail-fast.sh all",
     "test:unit": "npm --prefix testing run test:unit",
     "test:e2e": "npm --prefix testing run test:e2e:coverage",
     "test:watch": "testing/scripts/dev-coverage-watch.sh",
     "test:ci": "npm --prefix testing run test:ci",
-    
     "// Testing Subsets": "",
     "test:smoke": "testing/scripts/fail-fast.sh smoke",
     "test:wip": "testing/scripts/fail-fast.sh wip",
-    
     "// Coverage": "",
     "coverage": "testing/scripts/coverage-combined.sh",
     "coverage:open": "open testing/coverage/index.html",
     "coverage:stats": "testing/scripts/coverage-stats.sh",
     "coverage:reset": "npm --prefix testing run coverage:reset",
-    
     "// Documentation": "",
     "docs": "bundle exec jekyll serve --source noesis-docs",
     "docs:build": "bundle exec jekyll build --source noesis-docs"
@@ -47,8 +43,7 @@
   "devDependencies": {
     "@babel/core": "^7.28.0",
     "@babel/preset-env": "^7.28.0",
-    "@badeball/cypress-cucumber-preprocessor": "^20.0.2",
-    "@cypress-audit/lighthouse": "^1.4.2",
+    "@badeball/cypress-cucumber-preprocessor": "^22.2.0",
     "@cypress/code-coverage": "^3.14.5",
     "@cypress/webpack-preprocessor": "^6.0.1",
     "babel-loader": "^10.0.0",
@@ -58,6 +53,7 @@
     "cypress-real-events": "^1.14.0",
     "istanbul-lib-coverage": "^3.2.2",
     "jest": "^29.7.0",
+    "jest-environment-jsdom": "^30.0.4",
     "mochawesome": "^7.1.3",
     "mochawesome-merge": "^5.0.0",
     "mochawesome-report-generator": "^6.2.0",
