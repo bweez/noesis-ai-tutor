@@ -9,9 +9,6 @@ module.exports = defineConfig({
       // Cucumber preprocessor
       await addCucumberPreprocessorPlugin(on, config)
       
-      // Code coverage setup
-      require('@cypress/code-coverage/task')(on, config)
-      
       // Webpack preprocessor for step definitions
       on(
         'file:preprocessor',
@@ -31,17 +28,6 @@ module.exports = defineConfig({
                     },
                   ],
                 },
-                // Add babel-loader for code coverage instrumentation
-                {
-                  test: /\.js$/,
-                  exclude: /node_modules/,
-                  use: {
-                    loader: 'babel-loader',
-                    options: {
-                      plugins: ['istanbul']
-                    }
-                  }
-                }
               ],
             },
           },

@@ -35,6 +35,6 @@ module.exports = {
   // },
   setupFilesAfterEnv: ['<rootDir>/unit/jest.setup.js'],
   verbose: true,
-  // Don't collect coverage by default (let nyc handle it)
+  // Disable coverage by default (use specialized coverage scripts)
   collectCoverage: false
 }
